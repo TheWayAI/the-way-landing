@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   title: "The Way - A New Era for the Body of Christ",
   description:
     "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.ico',
+  }
 }
 
 export default function RootLayout({
