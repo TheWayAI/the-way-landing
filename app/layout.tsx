@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
   generator: 'v0.dev',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/waylogowhite.png',
+    shortcut: '/waylogowhite.png',
+    apple: '/waylogowhite.png',
   }
 }
 
