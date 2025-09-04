@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-28 md:pt-32 overflow-hidden">
       {/* Hero Background Image - Clean, no overlays */}
       <div className="absolute inset-0 z-0">
         <Image src="/hero-bg.png" alt="Garden Cross Background" fill className="object-cover opacity-15" priority />
@@ -30,8 +30,7 @@ export function HeroSection() {
         </h1>
 
         <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-          You were created for more than the mundane. Step boldly into a life of deep connection with God, radical
-          transformation, and Kingdom impact—right where you are, right now.
+          You were created for more than the mundane. The Way helps you break free from distraction and spiritual stagnation, step into a life of deep connection with God, and walk in daily transformation that leads to lasting Kingdom impact.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">

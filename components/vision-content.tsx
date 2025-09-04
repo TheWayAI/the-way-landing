@@ -17,7 +17,7 @@ export function VisionContent() {
               <span className="block text-slate-700">Bible Study</span>
             </h2>
             <p className="text-xl text-slate-600 leading-relaxed mb-8">
-              This generation is being invited to rediscover the original Way—the path of the first followers of Christ,
+              This generation is being invited to rediscover the original Way: the path of the first followers of Christ,
               rooted in the faith of those who have gone before us, yet not held back by the systems, structures, or
               strongholds that hinder you from directly experiencing the fullness of God.
             </p>

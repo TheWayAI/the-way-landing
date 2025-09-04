@@ -8,14 +8,16 @@ export function MovementSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-light text-slate-900 mb-6">
-            More Than an App—
-            <span className="block text-slate-700">A Spiritual Movement</span>
+            More Than a Bible Chat App
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            The Way isn't just another Bible app; it's a spiritual movement designed to help you step boldly into the
-            fullness of your calling. We're bringing biblical truth and emerging technology together to activate,
-            educate, and unite the Body of Christ.
-          </p>
+          <div className="bg-slate-50 rounded-2xl p-6 max-w-4xl mx-auto border border-slate-200">
+            <p className="text-lg text-slate-700 leading-relaxed mb-4">
+              The Way isn't just another Bible app. It is a <span className="font-bold italic">Kingdom movement</span>. Our purpose is to help you break free from worldly patterns, stay rooted in Scripture, and walk closely with Christ each day. Technology alone cannot transform a person. <span className="font-bold italic">Only Jesus does</span>.
+            </p>
+            <p className="text-lg text-slate-700 leading-relaxed">
+              The Way is a platform that empowers you to grow deeper in your faith wherever you are in your journey. As it expands, our vision is to become a <span className="font-bold italic">technology layer for the Body of Christ</span>, supporting the next generation of leaders in restoring the Spirit-led unity and purpose of the early Church in a modern world.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -29,7 +31,7 @@ export function MovementSection() {
             {
               icon: BookOpen,
               title: "Personal & Practical",
-              description: "AI-powered guidance that adapts to your unique journey, story, and spiritual rhythms.",
+              description: "Spirit-centered guidance supported by cutting-edge tools that adapt to your unique journey, story, and spiritual rhythms.",
             },
             {
               icon: Heart,

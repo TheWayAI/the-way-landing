@@ -4,21 +4,31 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function JourneySection() {
-  const journeySteps = [
+  const wayFeatures = [
     {
-      title: "Share Your Story",
-      description:
-        "Tell us about your spiritual journey, current season, and what you're longing for in your walk with God.",
+      title: "Scripture + Conviction",
+      description: "Get a daily word of truth and a conviction prompt that speaks directly to your walk and season of life.",
     },
     {
-      title: "Discover Your Path",
-      description:
-        "Receive personalized guidance, resources, and next steps tailored to your unique calling and circumstances.",
+      title: "Learn to Pray",
+      description: "Receive Spirit-led guidance and practical resources to deepen your prayer life when you don't know what to say.",
     },
     {
-      title: "Grow in Community",
-      description:
-        "Connect with fellow believers, access tools for discipleship, and step into Kingdom impact together.",
+      title: "Historical Perspectives",
+      description: "Gain wisdom from the writings of early church fathers and historical voices that illuminate Scripture with depth.",
+    },
+    {
+      title: "Build Discipline",
+      description: "Replace distraction with truth-based action and habits that shape a life of obedience to Christ.",
+    },
+    {
+      title: "Spiritual Warfare",
+      description: "Learn how to expose and counter the lies of the enemy so you can walk in freedom and victory.",
+    },
+    {
+      title: "Connect with the Body",
+      description: "Join a growing community of believers—locally and digitally—who are walking The Way together.",
+      comingSoon: true,
     },
   ]
 
@@ -27,35 +37,32 @@ export function JourneySection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-light text-slate-900 mb-6">
-            Your Journey
-            <span className="block text-slate-700">Starts Here</span>
+            Step Into The Way
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Whether you're exploring faith, just starting out, or seeking to lead and disciple others, The Way
-            personalizes encouragement, resources, and next steps for your journey.
+            Here's how The Way helps you grow in Christ each day:
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {journeySteps.map((step, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {wayFeatures.map((feature, index) => (
             <div key={index} className="relative">
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/50 h-full">
-                <div className="flex items-center mb-6">
-                  <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-800 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                    {index + 1}
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200/50 h-full hover:shadow-md transition-shadow duration-300">
+                {feature.comingSoon && (
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-slate-100 text-slate-600 text-xs font-medium px-2 py-1 rounded-full">
+                      Coming Soon
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900">{step.title}</h3>
-                </div>
-                <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                )}
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">{feature.description}</p>
               </div>
-              {index < journeySteps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                  <ArrowRight className="w-6 h-6 text-slate-600" />
-                </div>
-              )}
             </div>
           ))}
         </div>
+
+
 
         {/* Help Shape The Future Section */}
         <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8 text-center border border-slate-700 text-white">

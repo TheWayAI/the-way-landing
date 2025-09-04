@@ -15,10 +15,10 @@ export function CallToAction() {
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-light mb-6">
             Are You Ready to
-            <span className="block text-slate-300">Step In?</span>
+            <span className="block text-slate-300">Step Out in Faith?</span>
           </h2>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            This generation is being invited to rediscover the original Way—the path of the first followers of Christ.
+            This generation is being invited to rediscover the original Way: the path of the first followers of Christ.
             Join a movement of believers stepping boldly into the fullness of their calling.
           </p>
         </div>

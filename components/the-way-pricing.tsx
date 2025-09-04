@@ -3,7 +3,7 @@ import { Heart, Sparkles, Crown } from "lucide-react"
 
 const theWayTiers = [
   {
-    name: "Seeker",
+    name: "Explorer",
     price: {
       monthly: 0,
       yearly: 0,
@@ -13,7 +13,7 @@ const theWayTiers = [
     features: [
       {
         name: "5 Messages Per Month",
-        description: "Limited conversations with WayFinder AI",
+        description: "Limited conversations with WayFinder",
         included: true,
       },
       {
@@ -35,7 +35,7 @@ const theWayTiers = [
     buttonText: "Start Free",
   },
   {
-    name: "Disciple",
+    name: "Follower",
     price: {
       monthly: 19.99,
       yearly: 191.9, // 20% discount
@@ -69,7 +69,7 @@ const theWayTiers = [
     buttonText: "Begin Your Journey",
   },
   {
-    name: "Apostle",
+    name: "Leader",
     price: {
       monthly: 49.99,
       yearly: 479.9,
@@ -79,24 +79,24 @@ const theWayTiers = [
     comingSoon: true,
     features: [
       {
-        name: "Unlimited WayFinder AI",
+        name: "Unlimited AI Access",
         description: "No limits on AI conversations and guidance",
         included: true,
       },
       {
-        name: "Everything in Disciple",
-        description: "All features from the Disciple plan",
+        name: "More features TBA",
+        description: "Additional capabilities coming soon",
         included: true,
       },
       {
-        name: "Advanced Feature #1",
-        description: "To be announced - exciting new capability",
-        included: true,
+        name: "Feature Placeholder 1",
+        description: "Details coming soon",
+        included: false,
       },
       {
-        name: "Advanced Feature #2",
-        description: "To be announced - powerful new tool",
-        included: true,
+        name: "Feature Placeholder 2",
+        description: "Details coming soon",
+        included: false,
       },
     ],
   },

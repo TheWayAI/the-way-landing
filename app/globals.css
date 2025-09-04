@@ -147,3 +147,23 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-slate-400;
 }
+
+@layer utilities {
+  .pattern-grid-sm {
+    background-image: linear-gradient(currentColor 1px, transparent 1px),
+      linear-gradient(to right, currentColor 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .pattern-grid-md {
+    background-image: linear-gradient(currentColor 1px, transparent 1px),
+      linear-gradient(to right, currentColor 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  
+  .pattern-grid-lg {
+    background-image: linear-gradient(currentColor 1px, transparent 1px),
+      linear-gradient(to right, currentColor 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}

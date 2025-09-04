@@ -65,7 +65,7 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
             {["Monthly", "Yearly"].map((period) => (
               <button
                 key={period}
-                onClick={() => period === "Monthly" && setIsYearly(period === "Yearly")}
+                onClick={() => setIsYearly(period === "Yearly")}
                 disabled={period === "Yearly"}
                 className={cn(
                   "px-8 py-2.5 text-sm font-medium font-serif rounded-full transition-all duration-300",
@@ -123,8 +123,8 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
                 </div>
 
                 <div className="space-y-4">
-                  {tier.features.map((feature) => (
-                    <div key={feature.name} className="flex gap-3">
+                  {tier.features.map((feature, index) => (
+                    <div key={`${tier.name}-feature-${index}`} className="flex gap-3">
                       <div className="mt-1">
                         <Check className={cn("w-5 h-5", feature.included ? "text-slate-600" : "text-slate-300")} />
                       </div>
