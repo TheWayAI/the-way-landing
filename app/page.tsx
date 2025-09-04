@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { MovementSection } from "@/components/movement-section"
 import { WhyTheWaySection } from "@/components/why-the-way-section"
-
+import { AppShowcase } from "@/components/app-showcase"
 import { JourneySection } from "@/components/journey-section"
 import { TheWayPricing } from "@/components/the-way-pricing"
 import { CallToAction } from "@/components/call-to-action"
@@ -51,7 +51,7 @@ export default function Home() {
       <HeroSection />
       <MovementSection />
       <WhyTheWaySection />
-
+      <AppShowcase />
       <JourneySection />
       <TheWayPricing />
       <CallToAction />

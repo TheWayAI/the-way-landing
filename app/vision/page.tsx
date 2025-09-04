@@ -215,34 +215,46 @@ export default function VisionPage() {
               </div>
             </div>
 
-            {/* Kingdom Vision and Outcomes */}
+            {/* Kingdom Vision */}
             <div className="mb-16">
-              <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8 text-white text-center mb-8">
+              <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8 text-white text-center">
                 <h3 className="text-2xl font-serif font-semibold mb-4">Our Kingdom Vision</h3>
                 <p className="text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto">
                   Revival through discipleship — to see a generation walking in holiness, unity, and Spirit-filled boldness, just like the first followers of Jesus.
                 </p>
               </div>
-              
-              <div className="text-center">
-                <h3 className="text-2xl font-serif font-light text-slate-900 mb-8">What The Way Produces</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
-                    <p className="text-slate-800 font-semibold text-center leading-relaxed">Ordinary believers becoming disciple-makers</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
-                    <p className="text-slate-800 font-semibold text-center leading-relaxed">A generation anchored in truth, not swayed by culture</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
-                    <p className="text-slate-800 font-semibold text-center leading-relaxed">Churches strengthened with Spirit-led, equipped believers</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
-                    <p className="text-slate-800 font-semibold text-center leading-relaxed">Global unity across denominations under Christ</p>
-                  </div>
-                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What The Way Produces - Separate Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-serif font-light text-slate-900 mb-8">What The Way Produces</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                <p className="text-slate-800 font-semibold text-center leading-relaxed">Ordinary believers becoming disciple-makers</p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                <p className="text-slate-800 font-semibold text-center leading-relaxed">A generation anchored in truth, not swayed by culture</p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                <p className="text-slate-800 font-semibold text-center leading-relaxed">Churches strengthened with Spirit-led, equipped believers</p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                <p className="text-slate-800 font-semibold text-center leading-relaxed">Global unity across denominations under Christ</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Scripture Section */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
             <div className="bg-white rounded-2xl p-12 text-center shadow-xl border border-slate-200">
               <div className="bg-slate-50 rounded-xl p-8 mb-8">
                 <blockquote className="text-2xl md:text-3xl font-serif italic text-slate-800 leading-relaxed mb-4">
