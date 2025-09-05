@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { HeroSection } from "@/components/hero-section"
 import { MovementSection } from "@/components/movement-section"
 import { WhyTheWaySection } from "@/components/why-the-way-section"
@@ -8,6 +9,10 @@ import { CallToAction } from "@/components/call-to-action"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+
+export const metadata: Metadata = {
+  title: "THE WAY - Home",
+}
 
 export default function Home() {
   return (

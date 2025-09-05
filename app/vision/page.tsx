@@ -7,8 +7,13 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Flame, Sword, Zap, BookOpen, Users } from "lucide-react"
 import Image from "next/image"
+import { useEffect } from "react"
 
 export default function VisionPage() {
+  useEffect(() => {
+    document.title = "THE WAY - Vision"
+  }, [])
+
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
       <Navigation />
