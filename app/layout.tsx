@@ -11,6 +11,7 @@ const crimsonText = Crimson_Text({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://followtheway.io'),
   title: "The Way - A New Era for the Body of Christ",
   description:
     "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
@@ -23,14 +24,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Way - A New Era for the Body of Christ",
     description: "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    images: ['/logo.png?v=3'],
+    images: ['/logo.png?v=4'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "The Way - A New Era for the Body of Christ",
     description: "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    images: ['/logo.png?v=3'],
+    images: ['/logo.png?v=4'],
   }
 }
 
