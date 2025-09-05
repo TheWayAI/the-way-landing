@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Way - A New Era for the Body of Christ",
     description: "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    images: ['/hero-bg.png?v=2'],
+    images: ['/logo.png?v=3'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "The Way - A New Era for the Body of Christ",
     description: "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    images: ['/hero-bg.png?v=2'],
+    images: ['/logo.png?v=3'],
   }
 }
 
