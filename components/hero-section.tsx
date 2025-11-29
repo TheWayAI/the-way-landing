@@ -10,7 +10,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100">
       <div className="absolute inset-0 z-0">
         <Image 
           src="/hero-bg.png" 
@@ -25,7 +25,7 @@ export function HeroSection() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-slate-200/30 rounded-full blur-3xl"></div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20 pt-24">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20 pt-24 pb-32">
         <div className="mb-10 inline-flex items-center space-x-2 bg-white/80 px-5 py-2.5 rounded-full border border-slate-200 backdrop-blur-sm shadow-sm">
           <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
           <span className="text-sm font-medium text-slate-600 tracking-wide uppercase">A Movement Is Rising</span>
@@ -61,32 +61,32 @@ export function HeroSection() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <div className="flex flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-6 text-lg rounded-full shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-300 font-semibold"
+            className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-300 font-semibold"
             onClick={() => window.open("https://theway.masterymade.com/", "_blank")}
           >
-            Start Training
+            Join Now
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="px-10 py-6 text-lg rounded-full border-2 border-slate-300 text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:bg-slate-50 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+            className="px-8 py-6 text-lg rounded-full border-2 border-slate-300 text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:bg-slate-50 transition-all duration-300 bg-white/80 backdrop-blur-sm"
             onClick={scrollToVision}
           >
-            Learn the Vision
+            Explore the Vision
           </Button>
         </div>
-
-        <button 
-          onClick={scrollToVision}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 hover:text-slate-600 transition-colors animate-bounce"
-        >
-          <ChevronDown className="w-8 h-8" />
-        </button>
       </div>
+
+      <button 
+        onClick={scrollToVision}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 w-10 h-10 rounded-full border-2 border-slate-300 bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-slate-600 hover:border-slate-400 transition-all shadow-sm"
+      >
+        <ChevronDown className="w-5 h-5 animate-bounce" />
+      </button>
     </section>
   )
 }

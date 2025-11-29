@@ -51,10 +51,10 @@ export function CallToAction() {
 
         <Button
           size="lg"
-          className="group bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-12 py-7 text-xl rounded-full shadow-lg shadow-amber-900/30 hover:shadow-xl hover:shadow-amber-900/40 transition-all duration-300 font-semibold"
+          className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-12 py-7 text-xl rounded-full shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 font-semibold"
           onClick={() => window.open("https://theway.masterymade.com/", "_blank")}
         >
-          Start Training
+          Join Now
           <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
         </Button>
       </div>

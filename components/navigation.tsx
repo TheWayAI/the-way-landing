@@ -46,7 +46,7 @@ export function Navigation() {
               asChild
             >
               <a href="https://theway.masterymade.com/" target="_blank" rel="noopener noreferrer">
-                Start Training
+                Join Now
               </a>
             </Button>
           </div>
@@ -76,7 +76,7 @@ export function Navigation() {
                   asChild
                 >
                   <a href="https://theway.masterymade.com/" target="_blank" rel="noopener noreferrer">
-                    Start Training
+                    Join Now
                   </a>
                 </Button>
               </div>
