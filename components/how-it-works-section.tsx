@@ -342,12 +342,14 @@ function CommunityFeature() {
           <div className="flex items-center justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-amber-300/20 rounded-full blur-3xl"></div>
-              <div className="relative grid grid-cols-3 gap-3">
-                {[...Array(9)].map((_, i) => (
+              <div className="relative flex gap-4">
+                {[...Array(3)].map((_, i) => (
                   <div 
                     key={i}
-                    className="w-16 h-16 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 border-2 border-white shadow-lg"
-                  ></div>
+                    className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-200 to-amber-300 border-2 border-white shadow-lg flex items-center justify-center"
+                  >
+                    <Users className="w-6 h-6 text-amber-700" />
+                  </div>
                 ))}
               </div>
             </div>
