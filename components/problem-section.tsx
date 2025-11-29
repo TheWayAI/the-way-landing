@@ -15,11 +15,11 @@ export function ProblemSection() {
 
         <div className="space-y-6 mb-12">
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed text-center">
-            We've outsourced spiritual formation to shallow teachings, devotional apps, therapy culture, and algorithm-fed theology. Passive consumption with no accountability. Spiritual snacking with no roots. Emotional experiences over genuine worship. Instagramable messages over intercessory prayer. Vibes over doctrine, feelings over truth.
+            We've outsourced spiritual formation to shallow teachings and emotional experiences. To therapy culture and algorithm-fed theology. The result? Passive consumption with no accountability. Spiritual snacking with no roots. Vibes over doctrine. Feelings over truth.
           </p>
           
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed text-center">
-            The result? A generation of <span className="text-amber-400 font-semibold">lukewarm believers</span> who have heard of God but don't know how to follow Him. Who can quote verses but can't defend the faith. Who consume content but never become <span className="text-white font-semibold">consecrated</span>.
+            A generation of <span className="text-amber-400 font-semibold">lukewarm believers</span> who have heard of God but don't know how to follow Him. Who can quote verses but can't defend the faith. Who consume content but never become <span className="text-white font-semibold">consecrated</span>.
           </p>
         </div>
 
