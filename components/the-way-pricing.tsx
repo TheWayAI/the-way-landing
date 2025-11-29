@@ -3,33 +3,23 @@ import { Heart, Sparkles, Crown } from "lucide-react"
 
 const theWayTiers = [
   {
-    name: "Explorer",
+    name: "Seeker",
     price: {
       monthly: 0,
       yearly: 0,
     },
-    description: "Begin your spiritual journey with essential tools and resources",
+    description: "Free access to The Way with limited monthly credits",
     icon: <Heart className="w-8 h-8 text-slate-600" />,
     features: [
       {
-        name: "5 Messages Per Month",
-        description: "Limited conversations with WayFinder",
+        name: "Small monthly credits",
+        description: "Limited allocation for basic use",
         included: true,
       },
       {
-        name: "Free Faith Resources",
-        description: "Access to curated spiritual content and materials",
+        name: "Limited AI access",
+        description: "Basic models, frameworks, and tools",
         included: true,
-      },
-      {
-        name: "Premium AI Features",
-        description: "Full WayFinder AI capabilities",
-        included: false,
-      },
-      {
-        name: "Advanced Features",
-        description: "Complete resource library and tools",
-        included: false,
       },
     ],
     buttonText: "Start Free",
@@ -37,68 +27,48 @@ const theWayTiers = [
   {
     name: "Follower",
     price: {
-      monthly: 19.99,
-      yearly: 191.9, // 20% discount
+      monthly: 5,
+      yearly: 55,
     },
-    description: "Unlock premium WayFinder AI for deeper spiritual growth",
-    highlight: true,
-    badge: "Most Popular",
+    description: "Expanded access with deeper engagement in AI-guided spiritual growth",
     icon: <Sparkles className="w-8 h-8 text-slate-700" />,
     features: [
       {
-        name: "Premium WayFinder AI",
-        description: "Full access to our advanced Christ-centered AI assistant",
+        name: "Moderate monthly credits",
+        description: "Regular allocation for consistent engagement",
         included: true,
       },
       {
-        name: "Complete Resource Library",
-        description: "All premium faith resources and materials",
-        included: true,
-      },
-      {
-        name: "Personalized Spiritual Guidance",
-        description: "AI that understands your unique journey",
-        included: true,
-      },
-      {
-        name: "Early Access to New Features",
-        description: "Be first to experience latest updates",
+        name: "Access to additional resources & tools",
+        description: "AI-guided studies, daily renewal tools, and core frameworks",
         included: true,
       },
     ],
     buttonText: "Begin Your Journey",
   },
   {
-    name: "Leader",
+    name: "Disciple",
     price: {
-      monthly: 49.99,
-      yearly: 479.9,
+      monthly: 12,
+      yearly: 120,
     },
-    description: "Unlimited access and advanced features for spiritual leaders",
+    description: "Full access to The Way with all AI models, frameworks, and resources",
+    highlight: true,
+    badge: "Most Popular",
     icon: <Crown className="w-8 h-8 text-slate-600" />,
-    comingSoon: true,
     features: [
       {
-        name: "Unlimited AI Access",
-        description: "No limits on AI conversations and guidance",
+        name: "Most monthly credits",
+        description: "Abundant allocation to explore everything",
         included: true,
       },
       {
-        name: "More features TBA",
-        description: "Additional capabilities coming soon",
+        name: "Full access to all resources & tools",
+        description: "Complete platform access including all AI models, frameworks, studies, and community features",
         included: true,
-      },
-      {
-        name: "Feature Placeholder 1",
-        description: "Details coming soon",
-        included: false,
-      },
-      {
-        name: "Feature Placeholder 2",
-        description: "Details coming soon",
-        included: false,
       },
     ],
+    buttonText: "Unlock Full Access",
   },
 ]
 

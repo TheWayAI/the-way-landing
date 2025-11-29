@@ -66,16 +66,14 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
               <button
                 key={period}
                 onClick={() => setIsYearly(period === "Yearly")}
-                disabled={period === "Yearly"}
                 className={cn(
                   "px-8 py-2.5 text-sm font-medium font-serif rounded-full transition-all duration-300",
-                  period === "Monthly" ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 cursor-not-allowed",
+                  (period === "Monthly" && !isYearly) || (period === "Yearly" && isYearly)
+                    ? "bg-slate-900 text-white shadow-lg"
+                    : "text-slate-600 hover:text-slate-900",
                 )}
               >
                 {period}
-                {period === "Yearly" && (
-                  <span className="ml-2 text-xs bg-slate-300 text-slate-500 px-2 py-0.5 rounded-full">Coming Soon</span>
-                )}
               </button>
             ))}
           </div>
@@ -113,9 +111,11 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
                     <div className="mb-4">
                       <div className="flex items-center justify-center gap-2">
                         <span className="text-4xl font-bold text-slate-900">
-                          ${tier.price.monthly === 0 ? "0" : tier.price.monthly}
+                          ${isYearly ? (tier.price.yearly === 0 ? "0" : tier.price.yearly) : (tier.price.monthly === 0 ? "0" : tier.price.monthly)}
                         </span>
-                        {tier.price.monthly > 0 && <span className="text-sm text-slate-500">/month</span>}
+                        {(isYearly ? tier.price.yearly : tier.price.monthly) > 0 && (
+                          <span className="text-sm text-slate-500">/{isYearly ? "year" : "month"}</span>
+                        )}
                       </div>
                     </div>
                   )}
