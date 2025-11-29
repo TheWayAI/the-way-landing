@@ -26,31 +26,32 @@ export function HeroSection() {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-slate-200/30 rounded-full blur-3xl"></div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20 py-20">
-        <h1 className="font-serif font-light text-slate-800 mb-8 leading-tight tracking-tight">
-          <span className="block text-slate-500 text-lg sm:text-xl md:text-2xl mb-2 font-light">
+        <h1 className="font-serif text-slate-800 mb-8 leading-tight tracking-tight">
+          <span className="block text-slate-600 text-2xl sm:text-3xl md:text-4xl mb-3 font-light italic">
             The First Followers of Christ
           </span>
-          <span className="block text-slate-400 text-base sm:text-lg md:text-xl mb-4 font-light italic">
+          <span className="block text-slate-500 text-xl sm:text-2xl md:text-3xl mb-4 font-light italic">
             Weren't Called Christians.
           </span>
-          <span className="block text-slate-600 text-lg sm:text-xl md:text-2xl mb-2">
+          <span className="block text-slate-700 text-2xl sm:text-3xl md:text-4xl mb-4 font-medium">
             They Were Called
           </span>
-          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-2">
-            <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 bg-clip-text text-transparent font-medium">
+          <span className="relative inline-block mt-2">
+            <span className="absolute inset-0 bg-gradient-to-r from-amber-100/0 via-amber-100/60 to-amber-100/0 blur-xl scale-150"></span>
+            <span className="relative block text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-900 font-bold tracking-tight">
               The Way.
             </span>
           </span>
         </h1>
 
         <div className="max-w-2xl mx-auto mb-10">
-          <p className="text-base md:text-lg text-slate-600 mb-3 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 mb-4 leading-relaxed font-serif">
             And they turned the world upside down. Not through institutions, but through{" "}
-            <span className="text-slate-800 font-medium">Spirit</span>,{" "}
-            <span className="text-slate-800 font-medium">conviction</span>, and{" "}
-            <span className="text-slate-800 font-medium">everyday obedience</span>.
+            <span className="text-slate-800 font-semibold">Spirit</span>,{" "}
+            <span className="text-slate-800 font-semibold">conviction</span>, and{" "}
+            <span className="text-slate-800 font-semibold">everyday obedience</span>.
           </p>
-          <p className="text-base md:text-lg text-slate-700 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-serif">
             The Way is a movement leveraging the technologies of the future to return the Body of Christ to its roots.
           </p>
         </div>
