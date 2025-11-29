@@ -19,7 +19,7 @@ export function ProblemSection() {
           </p>
           
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed text-center">
-            The result? A generation of <span className="text-amber-400 font-semibold">lukewarm believers</span> who know about God but don't know how to follow Him. Who can quote verses but can't defend the faith. Who consume content but never become <span className="text-white font-semibold">consecrated</span>.
+            The result? A generation of <span className="text-amber-400 font-semibold">lukewarm believers</span> who have heard of God but don't know how to follow Him. Who can quote verses but can't defend the faith. Who consume content but never become <span className="text-white font-semibold">consecrated</span>.
           </p>
         </div>
 
