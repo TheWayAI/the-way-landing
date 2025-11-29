@@ -15,7 +15,7 @@ export function ProblemSection() {
 
         <div className="space-y-6 mb-12">
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed text-center">
-            We've outsourced spiritual formation to shallow teachings, devotional apps, therapy culture, and algorithm-fed theology. Passive consumption with no accountability. Spiritual snacking with no roots. Emotional experiences over genuine worship. Vibes over doctrine, feelings over truth.
+            We've outsourced spiritual formation to shallow teachings, devotional apps, therapy culture, and algorithm-fed theology. Passive consumption with no accountability. Spiritual snacking with no roots. Emotional experiences over genuine worship. Instagramable messages over intercessory prayer. Vibes over doctrine, feelings over truth.
           </p>
           
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed text-center">
