@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex flex-col items-center">
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-10 h-10 relative">
-              <Image src="/logo.png" alt="The Way Logo" width={40} height={40} className="object-contain" />
+              <Image src="/thewaylogo.jpeg" alt="The Way Logo" width={40} height={40} className="object-contain" />
             </div>
             <span className="text-xl font-serif font-bold text-white">The Way</span>
           </div>

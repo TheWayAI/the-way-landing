@@ -11,6 +11,12 @@ The Way is a faith-based web application landing page built with Next.js 15 and 
 
 The site is deployed on Vercel and was initially generated using v0.dev.
 
+## Logo Assets
+
+- **Primary logo**: `public/thewaylogo.jpeg` - The main logo used across navigation, footer, CTA sections, vision pages, favicon, and social sharing metadata
+- **Wordmark logo**: `public/thewaylogowordmark.jpeg` - Alternate version with "The Way" text included in the image; available as a secondary option
+- Old logos (`logo.png`, `waylogowhite.png`) are deprecated and no longer referenced in the codebase
+
 ## Recent Changes (November 2025)
 
 ### Major Landing Page Redesign

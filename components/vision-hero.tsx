@@ -17,7 +17,7 @@ export function VisionHero() {
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8">
           <div className="w-16 h-16 relative mx-auto mb-6">
-            <Image src="/logo.png" alt="The Way Logo" width={64} height={64} className="object-contain" />
+            <Image src="/thewaylogo.jpeg" alt="The Way Logo" width={64} height={64} className="object-contain" />
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-slate-900 mb-8 leading-tight">
             Our

@@ -30,7 +30,7 @@ export function VisionContent() {
             <div className="bg-gradient-to-br from-slate-100 to-slate-200 rounded-3xl p-8 shadow-xl">
               <div className="aspect-square bg-white rounded-2xl flex items-center justify-center">
                 <div className="w-32 h-32 relative">
-                  <Image src="/logo.png" alt="The Way Logo" width={128} height={128} className="object-contain" />
+                  <Image src="/thewaylogo.jpeg" alt="The Way Logo" width={128} height={128} className="object-contain" />
                 </div>
               </div>
             </div>

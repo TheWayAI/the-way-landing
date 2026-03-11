@@ -28,7 +28,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 relative">
-              <Image src="/logo.png" alt="The Way Logo" width={40} height={40} className="object-contain" />
+              <Image src="/thewaylogo.jpeg" alt="The Way Logo" width={40} height={40} className="object-contain" />
             </div>
             <span className="text-2xl font-serif font-bold text-slate-900">The Way</span>
           </Link>

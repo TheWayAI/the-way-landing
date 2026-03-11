@@ -17,21 +17,21 @@ export const metadata: Metadata = {
     "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
   generator: 'v0.dev',
   icons: {
-    icon: '/waylogowhite.png',
-    shortcut: '/waylogowhite.png',
-    apple: '/waylogowhite.png',
+    icon: '/thewaylogo.jpeg',
+    shortcut: '/thewaylogo.jpeg',
+    apple: '/thewaylogo.jpeg',
   },
   openGraph: {
     title: "The Way - A New Era for the Body of Christ",
     description: "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    images: ['/logo.png?v=4'],
+    images: ['/thewaylogo.jpeg'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: "The Way - A New Era for the Body of Christ",
     description: "Step boldly into a life of deep connection with God, radical transformation, and Kingdom impact. Experience WayFinder AI - your personal Christ-centered assistant.",
-    images: ['/logo.png?v=4'],
+    images: ['/thewaylogo.jpeg'],
   }
 }
 

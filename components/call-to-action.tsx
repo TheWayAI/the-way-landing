@@ -15,7 +15,7 @@ export function CallToAction() {
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
         <div className="mb-10">
           <div className="w-20 h-20 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full flex items-center justify-center mx-auto mb-8 border border-slate-700 shadow-xl">
-            <Image src="/logo.png" alt="The Way Logo" width={48} height={48} className="object-contain" />
+            <Image src="/thewaylogo.jpeg" alt="The Way Logo" width={48} height={48} className="object-contain" />
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-6">

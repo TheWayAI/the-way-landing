@@ -43,7 +43,7 @@ export default function VisionPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-8">
             <div className="w-20 h-20 relative mx-auto mb-8 p-2 bg-white rounded-full shadow-lg">
-              <Image src="/logo.png" alt="The Way Logo" width={80} height={80} className="object-contain" />
+              <Image src="/thewaylogo.jpeg" alt="The Way Logo" width={80} height={80} className="object-contain" />
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-light text-slate-900 mb-8 leading-tight">
               <span className="bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">Vision</span>
