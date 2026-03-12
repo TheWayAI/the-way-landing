@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ArrowRight, ArrowDown, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -61,25 +61,48 @@ function Nav() {
   )
 }
 
+function useReveal() {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!ref.current) return
+    const els = ref.current.querySelectorAll(".reveal")
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible")
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach((el) => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
+  return ref
+}
+
 export function NewLanding() {
   const scrollDown = () => {
     document.getElementById("intro")?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const mainRef = useReveal()
+
   return (
-    <main className="min-h-screen overflow-hidden">
+    <main ref={mainRef} className="min-h-screen overflow-hidden">
       <Nav />
 
       {/* ══════ HERO — WHITE ══════ */}
       <section className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-white">
-        <div className="relative z-10 max-w-2xl mx-auto px-6 text-center pt-24">
-          <div className="mb-16">
+        <div className="relative z-10 w-full max-w-2xl mx-auto px-6 text-center pt-24">
+          <div className="mb-12 md:mb-16">
             <Image
               src="/thewaylogo.jpeg"
               alt="The Way"
-              width={200}
-              height={200}
-              className="mx-auto object-contain"
+              width={160}
+              height={160}
+              className="mx-auto object-contain w-32 h-32 md:w-48 md:h-48"
               priority
             />
           </div>
@@ -90,10 +113,10 @@ export function NewLanding() {
           </h1>
 
           <blockquote className="max-w-lg mx-auto mb-12">
-            <p className="text-sm sm:text-base text-[#1c1c1c]/45 font-serif italic leading-relaxed">
+            <p className="text-base sm:text-lg text-[#1c1c1c]/45 font-serif italic leading-relaxed">
               &ldquo;If anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.&rdquo;
             </p>
-            <cite className="block mt-2 text-[10px] tracking-[0.25em] uppercase text-[#1c1c1c]/25 not-italic font-display">
+            <cite className="block mt-3 text-[11px] tracking-[0.25em] uppercase text-[#1c1c1c]/25 not-italic font-display">
               2 Corinthians 5:17
             </cite>
           </blockquote>
@@ -122,11 +145,11 @@ export function NewLanding() {
       {/* ══════ INTRO — LINEN ══════ */}
       <section id="intro" className="relative py-24 md:py-32 bg-linen">
         <div className="max-w-xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-sm sm:text-[15px] text-[#1c1c1c]/50 leading-[1.9] mb-8">
+          <p className="text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.85] mb-8">
             You have been formed. By algorithms, by trauma, by noise, by years of coping and surviving and performing. Scripture calls what that produces the <span className="text-[#1c1c1c]/75 italic">old self</span>. And it doesn&apos;t die quietly. It resurfaces in the patterns you keep returning to, the shame that keeps you at a distance, the version of yourself you slip back into when no one&apos;s watching.
           </p>
 
-          <p className="text-lg sm:text-xl text-[#1c1c1c]/75 font-serif max-w-sm mx-auto">
+          <p className="text-xl sm:text-2xl text-[#1c1c1c]/75 font-serif max-w-sm mx-auto leading-snug">
             Transformation is not a moment. It is a practice. <span className="text-[#1c1c1c] font-medium">The Way</span> was built for that practice.
           </p>
         </div>
@@ -135,7 +158,7 @@ export function NewLanding() {
       {/* ══════ DISCIPLESHIP CRISIS — WHITE ══════ */}
       <section className="relative py-24 md:py-32 bg-white">
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
-          <p className="text-[10px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
+          <p className="text-[11px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
             The Discipleship Crisis
           </p>
 
@@ -144,11 +167,11 @@ export function NewLanding() {
             <span className="block text-[#4a7cbf]">to gather.</span>
           </h2>
 
-          <p className="text-lg sm:text-xl font-serif text-[#1c1c1c]/30 text-center mb-14">
+          <p className="text-xl sm:text-2xl font-serif text-[#1c1c1c]/30 text-center mb-14">
             Formation is the harder work.
           </p>
 
-          <div className="space-y-6 text-sm sm:text-[15px] text-[#1c1c1c]/50 leading-[1.9]">
+          <div className="space-y-6 text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.85]">
             <p>
               You can fill a stadium. You can run a service that moves people. But then Monday comes, and they go back into the same patterns, the same identity loops, the same version of themselves the world built before they ever walked through your doors.
             </p>
@@ -163,10 +186,10 @@ export function NewLanding() {
           </div>
 
           <blockquote className="my-14 border-l-2 border-[#4a7cbf] pl-6">
-            <p className="text-base sm:text-lg text-[#1c1c1c]/50 font-serif italic leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#1c1c1c]/50 font-serif italic leading-relaxed">
               &ldquo;Do not be conformed to this world, but be transformed by the renewing of your mind.&rdquo;
             </p>
-            <cite className="block mt-3 text-[10px] tracking-[0.25em] uppercase text-[#1c1c1c]/25 not-italic font-display">
+            <cite className="block mt-3 text-[11px] tracking-[0.25em] uppercase text-[#1c1c1c]/25 not-italic font-display">
               Romans 12:2
             </cite>
           </blockquote>
@@ -176,7 +199,7 @@ export function NewLanding() {
       {/* ══════ IDENTITY LAYER — LINEN ══════ */}
       <section className="relative py-24 md:py-32 bg-linen">
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
-          <p className="text-[10px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
+          <p className="text-[11px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
             The Identity Layer
           </p>
 
@@ -188,37 +211,37 @@ export function NewLanding() {
           </h2>
 
           <blockquote className="my-10 text-center">
-            <p className="text-sm sm:text-base text-[#1c1c1c]/50 font-serif italic leading-relaxed max-w-md mx-auto">
+            <p className="text-base sm:text-lg text-[#1c1c1c]/50 font-serif italic leading-relaxed max-w-md mx-auto">
               &ldquo;You are my Son, whom I love; with you I am well pleased.&rdquo;
             </p>
-            <cite className="block mt-2 text-[10px] tracking-[0.25em] uppercase text-[#1c1c1c]/25 not-italic font-display">
+            <cite className="block mt-3 text-[11px] tracking-[0.25em] uppercase text-[#1c1c1c]/25 not-italic font-display">
               Matthew 3:17
             </cite>
           </blockquote>
 
-          <p className="text-sm sm:text-[15px] text-[#1c1c1c]/50 leading-[1.8] text-center max-w-lg mx-auto mb-5">
+          <p className="text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.8] text-center max-w-lg mx-auto mb-5">
             Before the ministry. Before the miracles. Before the cross. Identity first. Everything else flows from that.
           </p>
 
-          <p className="text-sm sm:text-[15px] text-[#1c1c1c]/50 leading-[1.8] text-center max-w-lg mx-auto mb-16">
+          <p className="text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.8] text-center max-w-lg mx-auto mb-16">
             The Way is built on the same sequence. The work begins at the level of identity &mdash; <span className="text-[#1c1c1c]/75">who you are in Christ</span> &mdash; and everything else is built from there. A new architecture for how you see yourself, reinforced daily, until the old self loses its grip.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-[1px] bg-[#1c1c1c]/[0.08]">
+          <div className="grid sm:grid-cols-3 gap-px bg-[#1c1c1c]/[0.08]">
             <div className="bg-[#e8e3db] p-8">
-              <span className="text-[10px] font-display font-semibold text-[#4a7cbf] tracking-[0.2em]">01</span>
+              <span className="text-[11px] font-display font-semibold text-[#4a7cbf] tracking-[0.2em]">01</span>
               <h3 className="font-display font-semibold text-[#1c1c1c] mt-3 mb-2 uppercase tracking-wide text-sm">Identity before activity.</h3>
-              <p className="text-[#1c1c1c]/45 leading-relaxed text-sm">Know who you are in Christ before anything you do.</p>
+              <p className="text-[#1c1c1c]/45 leading-relaxed text-base">Know who you are in Christ before anything you do.</p>
             </div>
             <div className="bg-[#e8e3db] p-8">
-              <span className="text-[10px] font-display font-semibold text-[#4a7cbf] tracking-[0.2em]">02</span>
+              <span className="text-[11px] font-display font-semibold text-[#4a7cbf] tracking-[0.2em]">02</span>
               <h3 className="font-display font-semibold text-[#1c1c1c] mt-3 mb-2 uppercase tracking-wide text-sm">Formation over information.</h3>
-              <p className="text-[#1c1c1c]/45 leading-relaxed text-sm">Deeper than content. The work of becoming.</p>
+              <p className="text-[#1c1c1c]/45 leading-relaxed text-base">Deeper than content. The work of becoming.</p>
             </div>
             <div className="bg-[#e8e3db] p-8">
-              <span className="text-[10px] font-display font-semibold text-[#4a7cbf] tracking-[0.2em]">03</span>
+              <span className="text-[11px] font-display font-semibold text-[#4a7cbf] tracking-[0.2em]">03</span>
               <h3 className="font-display font-semibold text-[#1c1c1c] mt-3 mb-2 uppercase tracking-wide text-sm">Renewal as practice.</h3>
-              <p className="text-[#1c1c1c]/45 leading-relaxed text-sm">Romans 12:2 is not a declaration. It is a daily discipline.</p>
+              <p className="text-[#1c1c1c]/45 leading-relaxed text-base">Romans 12:2 is not a declaration. It is a daily discipline.</p>
             </div>
           </div>
         </div>
@@ -227,7 +250,7 @@ export function NewLanding() {
       {/* ══════ WHAT WE'RE BUILDING — WHITE ══════ */}
       <section className="relative py-24 md:py-32 bg-white">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <p className="text-[10px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
+          <p className="text-[11px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
             What We&apos;re Building
           </p>
 
@@ -236,7 +259,7 @@ export function NewLanding() {
             <span className="block mt-1 text-[#4a7cbf]">Body of Christ.</span>
           </h2>
 
-          <p className="text-sm sm:text-[15px] text-[#1c1c1c]/50 leading-[1.8] text-center max-w-lg mx-auto mb-6">
+          <p className="text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.8] text-center max-w-lg mx-auto mb-6">
             An AI built differently &mdash; from the ground up &mdash; aligned to the teachings of Christ, trained to walk with you through the real work of becoming new.
           </p>
 
@@ -250,13 +273,13 @@ export function NewLanding() {
             />
           </div>
 
-          <div className="space-y-[1px] bg-[#1c1c1c]/[0.08]">
+          <div className="space-y-px bg-[#1c1c1c]/[0.08]">
             <div className="bg-white p-8 md:p-10">
               <div className="flex items-start gap-6">
                 <span className="font-serif text-xl text-[#4a7cbf] font-light leading-none pt-0.5 shrink-0 w-8">I</span>
                 <div>
-                  <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-2 uppercase tracking-wide">Christ-Aligned AI</h3>
-                  <p className="text-[#1c1c1c]/50 leading-relaxed text-sm">Wayfinder is trained on Scripture, doctrine, and the deep tradition of the Church. Aligned to Christ, built without the incentives of a platform pulling it sideways.</p>
+                  <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-3 uppercase tracking-wide">Christ-Aligned AI</h3>
+                  <p className="text-[#1c1c1c]/50 leading-relaxed text-base sm:text-lg">Wayfinder is trained on Scripture, doctrine, and the deep tradition of the Church. Aligned to Christ, built without the incentives of a platform pulling it sideways.</p>
                 </div>
               </div>
             </div>
@@ -265,8 +288,8 @@ export function NewLanding() {
               <div className="flex items-start gap-6">
                 <span className="font-serif text-xl text-[#4a7cbf] font-light leading-none pt-0.5 shrink-0 w-8">II</span>
                 <div>
-                  <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-2 uppercase tracking-wide">Identity Formation</h3>
-                  <p className="text-[#1c1c1c]/50 leading-relaxed text-sm">The work begins at the level of who you are &mdash; deeper than behavior or habit. Daily practice, Scripture-rooted reflection, and a formation framework that reinforces your identity in Christ when no one else is around.</p>
+                  <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-3 uppercase tracking-wide">Identity Formation</h3>
+                  <p className="text-[#1c1c1c]/50 leading-relaxed text-base sm:text-lg">The work begins at the level of who you are &mdash; deeper than behavior or habit. Daily practice, Scripture-rooted reflection, and a formation framework that reinforces your identity in Christ when no one else is around.</p>
                 </div>
               </div>
             </div>
@@ -275,8 +298,8 @@ export function NewLanding() {
               <div className="flex items-start gap-6">
                 <span className="font-serif text-xl text-[#4a7cbf] font-light leading-none pt-0.5 shrink-0 w-8">III</span>
                 <div>
-                  <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-2 uppercase tracking-wide">Sovereign Infrastructure</h3>
-                  <p className="text-[#1c1c1c]/50 leading-relaxed text-sm">Built to be private, portable, and uncensorable. The AI that walks with persecuted believers in closed nations cannot be one that a government can simply switch off or redirect.</p>
+                  <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-3 uppercase tracking-wide">Sovereign Infrastructure</h3>
+                  <p className="text-[#1c1c1c]/50 leading-relaxed text-base sm:text-lg">Built to be private, portable, and uncensorable. The AI that walks with persecuted believers in closed nations cannot be one that a government can simply switch off or redirect.</p>
                 </div>
               </div>
             </div>
@@ -284,10 +307,85 @@ export function NewLanding() {
         </div>
       </section>
 
-      {/* ══════ LARGER VISION — LINEN ══════ */}
+      {/* ══════ WAYFINDER — LINEN ══════ */}
       <section className="relative py-24 md:py-32 bg-linen">
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
-          <p className="text-[10px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
+          <div className="reveal">
+            <p className="text-[11px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
+              Wayfinder
+            </p>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-[#1c1c1c] leading-tight mb-4 text-center">
+              Not a chatbot.
+              <span className="block mt-1 text-[#4a7cbf] italic">A disciple-maker.</span>
+            </h2>
+
+            <div className="space-y-5 text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.85] mt-10">
+              <p>
+                Most AI gives you answers. Wayfinder gives you formation. It doesn&apos;t just respond to questions &mdash; it holds the thread of your growth over time, pressing deeper into who you are and who you&apos;re becoming in Christ.
+              </p>
+              <p>
+                The difference is what it&apos;s built on. Wayfinder is trained on Scripture, the Church fathers, historical theology, and two thousand years of apostolic practice. When you bring it a question, it doesn&apos;t search the internet. It searches the tradition.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 border-t border-[#1c1c1c]/[0.08]">
+            <div className="reveal grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
+              <span className="font-serif text-lg italic text-[#1c1c1c]/25 pt-0.5">&mdash;</span>
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Scripture &amp; Doctrine</h3>
+                <p className="text-[#1c1c1c]/45 leading-[1.85] text-base sm:text-lg">Deep reading, not verse-of-the-day consumption. Wayfinder can walk you through a passage with the rigor of a theologian and the patience of a pastor &mdash; tracing the original language, the historical context, what the fathers said, and what it means for you today.</p>
+              </div>
+            </div>
+
+            <div className="reveal [transition-delay:0.1s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
+              <span className="font-serif text-lg italic text-[#1c1c1c]/25 pt-0.5">&mdash;</span>
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Apologetics Training</h3>
+                <p className="text-[#1c1c1c]/45 leading-[1.85] text-base sm:text-lg">The world will challenge what you believe. Wayfinder prepares you to answer &mdash; not with rage, but with clarity. Defend the Resurrection. Engage the problem of evil. Counter the arguments you actually encounter, grounded in logic and the tradition of the Church.</p>
+              </div>
+            </div>
+
+            <div className="reveal [transition-delay:0.22s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
+              <span className="font-serif text-lg italic text-[#1c1c1c]/25 pt-0.5">&mdash;</span>
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Spiritual Warfare</h3>
+                <p className="text-[#1c1c1c]/45 leading-[1.85] text-base sm:text-lg">The enemy&apos;s tactics are ancient and they are patterned. Fear, accusation, division, confusion &mdash; Wayfinder helps you name what&apos;s happening, root it in Scripture, and pray with authority rather than anxiety. Awareness is the beginning of freedom.</p>
+              </div>
+            </div>
+
+            <div className="reveal grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
+              <span className="font-serif text-lg italic text-[#1c1c1c]/25 pt-0.5">&mdash;</span>
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Prayer &amp; Renewal</h3>
+                <p className="text-[#1c1c1c]/45 leading-[1.85] text-base sm:text-lg">Not a prayer generator. A guide into deeper prayer &mdash; intercessory depth, liturgical rhythm, the kind of practiced silence that the desert fathers understood. Wayfinder builds a daily rhythm that gradually displaces the noise rather than competing with it.</p>
+              </div>
+            </div>
+
+            <div className="reveal [transition-delay:0.1s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
+              <span className="font-serif text-lg italic text-[#1c1c1c]/25 pt-0.5">&mdash;</span>
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Identity Reflection</h3>
+                <p className="text-[#1c1c1c]/45 leading-[1.85] text-base sm:text-lg">The old self doesn&apos;t yield to information. It yields to repeated encounter with truth. Wayfinder surfaces what Scripture says about who you are &mdash; not as affirmation, but as formation. The kind of daily confrontation with your identity in Christ that slowly rewrites the story you&apos;ve been living from.</p>
+              </div>
+            </div>
+
+            <div className="reveal [transition-delay:0.22s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
+              <span className="font-serif text-lg italic text-[#1c1c1c]/25 pt-0.5">&mdash;</span>
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">The Church Fathers</h3>
+                <p className="text-[#1c1c1c]/45 leading-[1.85] text-base sm:text-lg">Origen on spiritual warfare. Augustine on the nature of sin. Athanasius on the Incarnation. Chrysostom on living radically. The desert fathers on renunciation. Their writings aren&apos;t relics &mdash; they&apos;re weapons. Wayfinder makes them accessible, contextualized, and actionable for your life today.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════ LARGER VISION — WHITE ══════ */}
+      <section className="relative py-24 md:py-32 bg-white">
+        <div className="max-w-2xl mx-auto px-6 lg:px-8">
+          <p className="text-[11px] font-display font-semibold tracking-[0.3em] uppercase text-[#c93a2d] mb-8 text-center">
             The Larger Vision
           </p>
 
@@ -297,7 +395,7 @@ export function NewLanding() {
             <span className="block mt-1 text-[#4a7cbf]">It needs infrastructure.</span>
           </h2>
 
-          <div className="space-y-6 text-sm sm:text-[15px] text-[#1c1c1c]/50 leading-[1.8] mt-14">
+          <div className="space-y-6 text-base sm:text-lg text-[#1c1c1c]/50 leading-[1.85] mt-14">
             <p>
               The early followers of The Way didn&apos;t have institutions. They had identity, community, and the Spirit. They also turned the world upside down. What they lacked was scale. The question is whether we build the technology right &mdash; or let someone else build it wrong.
             </p>
@@ -317,8 +415,8 @@ export function NewLanding() {
         </div>
       </section>
 
-      {/* ══════ FINAL CTA — WHITE ══════ */}
-      <section className="relative py-24 md:py-32 bg-white">
+      {/* ══════ FINAL CTA — LINEN ══════ */}
+      <section className="relative py-24 md:py-32 bg-linen">
         <div className="relative z-10 max-w-xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light text-[#1c1c1c] leading-tight mb-3">
             The new has come.
@@ -327,12 +425,12 @@ export function NewLanding() {
             Begin the work.
           </p>
 
-          <p className="text-sm text-[#1c1c1c]/35 mb-10 max-w-sm mx-auto">
+          <p className="text-base sm:text-lg text-[#1c1c1c]/35 mb-10 max-w-sm mx-auto">
             Request early access. We&apos;re building with a small group of believers first.
           </p>
 
           <form
-            className="flex flex-col sm:flex-row gap-0 max-w-md mx-auto"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-0 max-w-md mx-auto"
             onSubmit={(e) => {
               e.preventDefault()
               window.open("https://theway.masterymade.com/", "_blank")
@@ -341,11 +439,11 @@ export function NewLanding() {
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-1 bg-[#e8e3db]/30 border border-[#1c1c1c]/10 px-5 py-3.5 text-sm text-[#1c1c1c] placeholder:text-[#1c1c1c]/25 focus:outline-none focus:border-[#4a7cbf] transition-colors"
+              className="flex-1 bg-[#e8e3db]/30 border border-[#1c1c1c]/10 px-5 py-4 text-base text-[#1c1c1c] placeholder:text-[#1c1c1c]/25 focus:outline-none focus:border-[#4a7cbf] transition-colors"
             />
             <button
               type="submit"
-              className="group inline-flex items-center justify-center bg-[#1c1c1c] text-white px-6 py-3.5 text-xs font-display font-semibold tracking-[0.15em] uppercase hover:bg-[#333] transition-colors shrink-0"
+              className="group inline-flex items-center justify-center bg-[#1c1c1c] text-white px-6 py-4 text-xs font-display font-semibold tracking-[0.15em] uppercase hover:bg-[#333] transition-colors shrink-0"
             >
               Request Access
               <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -372,7 +470,7 @@ export function NewLanding() {
                 The Way
               </span>
             </div>
-            <p className="text-[#1c1c1c]/20 text-xs">
+            <p className="text-[#1c1c1c]/20 text-sm">
               &copy; {new Date().getFullYear()} The Way. All rights reserved.
             </p>
           </div>
