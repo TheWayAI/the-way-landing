@@ -177,7 +177,7 @@ export function NewLanding() {
             </p>
 
             <p>
-              This isn&apos;t a failure of faith. It&apos;s a failure of <span className="text-[#1c1c1c] font-medium">formation infrastructure</span>. The early Church didn&apos;t just preach at people. It walked with them. It disrupted the shame that kept them from the Father. It built new identity from the ground up &mdash; grounded in who they were <span className="text-[#1c1c1c] font-medium italic">in Christ</span>, before they ever did anything.
+              This isn&apos;t a failure of faith. It&apos;s a failure of <span className="text-[#1c1c1c] font-medium">formation infrastructure</span>. The early Church didn&apos;t just preach at people. It walked with them. It disrupted the shame that kept them from the Father. It built new identity from the ground up, grounded in who they were <span className="text-[#1c1c1c] font-medium italic">in Christ</span>, before they ever did anything.
             </p>
 
             <p>
@@ -224,7 +224,7 @@ export function NewLanding() {
           </p>
 
           <p className="text-base sm:text-lg text-[#1c1c1c]/75 leading-[1.8] text-center max-w-lg mx-auto mb-16">
-            The Way is built on the same sequence. The work begins at the level of identity &mdash; <span className="text-[#1c1c1c] font-medium">who you are in Christ</span> &mdash; and everything else is built from there. A new architecture for how you see yourself, reinforced daily, until the old self loses its grip.
+            The Way is built on the same sequence. The work begins at the level of identity: <span className="text-[#1c1c1c] font-medium">who you are in Christ</span>. Everything else is built from there. A new architecture for how you see yourself, reinforced daily, until the old self loses its grip.
           </p>
 
           <div className="grid sm:grid-cols-3 gap-px bg-[#1c1c1c]/[0.08]">
@@ -260,7 +260,7 @@ export function NewLanding() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#1c1c1c]/75 leading-[1.8] text-center max-w-lg mx-auto mb-6">
-            An AI built differently &mdash; from the ground up &mdash; aligned to the teachings of Christ, trained to walk with you through the real work of becoming new.
+            An AI built differently, from the ground up, aligned to the teachings of Christ, trained to walk with you through the real work of becoming new.
           </p>
 
           <div className="flex justify-center mb-14">
@@ -289,7 +289,7 @@ export function NewLanding() {
                 <span className="font-serif text-xl text-[#4a7cbf] font-light leading-none pt-0.5 shrink-0 w-8">II</span>
                 <div>
                   <h3 className="text-sm font-display font-semibold text-[#1c1c1c] mb-3 uppercase tracking-wide">Identity Formation</h3>
-                  <p className="text-[#1c1c1c]/75 leading-relaxed text-base sm:text-lg">The work begins at the level of who you are &mdash; deeper than behavior or habit. Daily practice, Scripture-rooted reflection, and a formation framework that reinforces your identity in Christ when no one else is around.</p>
+                  <p className="text-[#1c1c1c]/75 leading-relaxed text-base sm:text-lg">The work begins at the level of who you are, deeper than behavior or habit. Daily practice, Scripture-rooted reflection, and a formation framework that reinforces your identity in Christ when no one else is around.</p>
                 </div>
               </div>
             </div>
@@ -322,7 +322,7 @@ export function NewLanding() {
 
             <div className="space-y-5 text-base sm:text-lg text-[#1c1c1c]/75 leading-[1.85] mt-10">
               <p>
-                Most AI gives you answers. Wayfinder gives you formation. It doesn&apos;t just respond to questions &mdash; it holds the thread of your growth over time, pressing deeper into who you are and who you&apos;re becoming in Christ.
+                Most AI gives you answers. Wayfinder gives you formation. It doesn&apos;t just respond to questions. It holds the thread of your growth over time, pressing deeper into who you are and who you&apos;re becoming in Christ.
               </p>
               <p>
                 The difference is what it&apos;s built on. Wayfinder is trained on Scripture, the Church fathers, historical theology, and two thousand years of apostolic practice. When you bring it a question, it doesn&apos;t search the internet. It searches the tradition.
@@ -331,52 +331,34 @@ export function NewLanding() {
           </div>
 
           <div className="mt-14 border-t border-[#1c1c1c]/[0.08]">
-            <div className="reveal grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
-              <span className="font-serif text-lg italic text-[#1c1c1c]/40 pt-0.5">&mdash;</span>
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Scripture &amp; Doctrine</h3>
-                <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">Deep reading, not verse-of-the-day consumption. Wayfinder can walk you through a passage with the rigor of a theologian and the patience of a pastor &mdash; tracing the original language, the historical context, what the fathers said, and what it means for you today.</p>
-              </div>
+            <div className="reveal py-10 border-b border-[#1c1c1c]/[0.08]">
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Scripture &amp; Doctrine</h3>
+              <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">Deep reading, not verse-of-the-day consumption. Wayfinder can walk you through a passage with the rigor of a theologian and the patience of a pastor, tracing the original language, the historical context, what the fathers said, and what it means for you today.</p>
             </div>
 
-            <div className="reveal [transition-delay:0.1s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
-              <span className="font-serif text-lg italic text-[#1c1c1c]/40 pt-0.5">&mdash;</span>
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Apologetics Training</h3>
-                <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">The world will challenge what you believe. Wayfinder prepares you to answer &mdash; not with rage, but with clarity. Defend the Resurrection. Engage the problem of evil. Counter the arguments you actually encounter, grounded in logic and the tradition of the Church.</p>
-              </div>
+            <div className="reveal [transition-delay:0.1s] py-10 border-b border-[#1c1c1c]/[0.08]">
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Apologetics Training</h3>
+              <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">The world will challenge what you believe. Wayfinder prepares you to answer, not with rage, but with clarity. Defend the Resurrection. Engage the problem of evil. Counter the arguments you actually encounter, grounded in logic and the tradition of the Church.</p>
             </div>
 
-            <div className="reveal [transition-delay:0.22s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
-              <span className="font-serif text-lg italic text-[#1c1c1c]/40 pt-0.5">&mdash;</span>
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Spiritual Warfare</h3>
-                <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">The enemy&apos;s tactics are ancient and they are patterned. Fear, accusation, division, confusion &mdash; Wayfinder helps you name what&apos;s happening, root it in Scripture, and pray with authority rather than anxiety. Awareness is the beginning of freedom.</p>
-              </div>
+            <div className="reveal [transition-delay:0.22s] py-10 border-b border-[#1c1c1c]/[0.08]">
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Spiritual Warfare</h3>
+              <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">The enemy&apos;s tactics are ancient and they are patterned. Fear, accusation, division, confusion. Wayfinder helps you name what&apos;s happening, root it in Scripture, and pray with authority rather than anxiety. Awareness is the beginning of freedom.</p>
             </div>
 
-            <div className="reveal grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
-              <span className="font-serif text-lg italic text-[#1c1c1c]/40 pt-0.5">&mdash;</span>
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Prayer &amp; Renewal</h3>
-                <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">Not a prayer generator. A guide into deeper prayer &mdash; intercessory depth, liturgical rhythm, the kind of practiced silence that the desert fathers understood. Wayfinder builds a daily rhythm that gradually displaces the noise rather than competing with it.</p>
-              </div>
+            <div className="reveal py-10 border-b border-[#1c1c1c]/[0.08]">
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Prayer &amp; Renewal</h3>
+              <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">Not a prayer generator. A guide into deeper prayer: intercessory depth, liturgical rhythm, the kind of practiced silence that the desert fathers understood. Wayfinder builds a daily rhythm that gradually displaces the noise rather than competing with it.</p>
             </div>
 
-            <div className="reveal [transition-delay:0.1s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
-              <span className="font-serif text-lg italic text-[#1c1c1c]/40 pt-0.5">&mdash;</span>
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Identity Reflection</h3>
-                <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">The old self doesn&apos;t yield to information. It yields to repeated encounter with truth. Wayfinder surfaces what Scripture says about who you are &mdash; not as affirmation, but as formation. The kind of daily confrontation with your identity in Christ that slowly rewrites the story you&apos;ve been living from.</p>
-              </div>
+            <div className="reveal [transition-delay:0.1s] py-10 border-b border-[#1c1c1c]/[0.08]">
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">Identity Reflection</h3>
+              <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">The old self doesn&apos;t yield to information. It yields to repeated encounter with truth. Wayfinder surfaces what Scripture says about who you are, not as affirmation, but as formation. The kind of daily confrontation with your identity in Christ that slowly rewrites the story you&apos;ve been living from.</p>
             </div>
 
-            <div className="reveal [transition-delay:0.22s] grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-5 sm:gap-6 items-start py-10 border-b border-[#1c1c1c]/[0.08]">
-              <span className="font-serif text-lg italic text-[#1c1c1c]/40 pt-0.5">&mdash;</span>
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">The Church Fathers</h3>
-                <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">Origen on spiritual warfare. Augustine on the nature of sin. Athanasius on the Incarnation. Chrysostom on living radically. The desert fathers on renunciation. Their writings aren&apos;t relics &mdash; they&apos;re weapons. Wayfinder makes them accessible, contextualized, and actionable for your life today.</p>
-              </div>
+            <div className="reveal [transition-delay:0.22s] py-10 border-b border-[#1c1c1c]/[0.08]">
+              <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1c1c1c] mb-3 leading-tight">The Church Fathers</h3>
+              <p className="text-[#1c1c1c]/70 leading-[1.85] text-base sm:text-lg">Origen on spiritual warfare. Augustine on the nature of sin. Athanasius on the Incarnation. Chrysostom on living radically. The desert fathers on renunciation. Their writings aren&apos;t relics. They&apos;re weapons. Wayfinder makes them accessible, contextualized, and actionable for your life today.</p>
             </div>
           </div>
         </div>
@@ -397,7 +379,7 @@ export function NewLanding() {
 
           <div className="space-y-6 text-base sm:text-lg text-[#1c1c1c]/75 leading-[1.85] mt-14">
             <p>
-              The early followers of The Way didn&apos;t have institutions. They had identity, community, and the Spirit. They also turned the world upside down. What they lacked was scale. The question is whether we build the technology right &mdash; or let someone else build it wrong.
+              The early followers of The Way didn&apos;t have institutions. They had identity, community, and the Spirit. They also turned the world upside down. What they lacked was scale. The question is whether we build the technology right, or let someone else build it wrong.
             </p>
 
             <p>
@@ -409,7 +391,7 @@ export function NewLanding() {
             </p>
 
             <p>
-              If the Church is going to be the trust anchor for a new kind of economy, a new kind of community, a new kind of world &mdash; it needs people who actually know who they are. The Way is where that work begins.
+              If the Church is going to be the trust anchor for a new kind of economy, a new kind of community, a new kind of world, it needs people who actually know who they are. The Way is where that work begins.
             </p>
           </div>
         </div>
