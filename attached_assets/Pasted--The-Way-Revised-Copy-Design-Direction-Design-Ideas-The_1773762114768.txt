@@ -1,0 +1,161 @@
+# The Way — Revised Copy & Design Direction
+
+-----
+
+## Design Ideas
+
+**The core tension: manuscript meets frontier.** The page should feel like discovering an ancient document that’s somehow alive. Parchment that breathes. A scroll with a pulse underneath it. The Essenes meet something that hasn’t been built yet.
+
+**Background and texture.** Move away from flat dark. Think warm parchment tones, aged paper texture, something that feels like you could touch it. Not a clean digital surface. The kind of background that makes text feel *placed* on something real. Grain, fiber, the subtle imperfection of old material. But then underneath that, or bleeding through it, the faintest suggestion of structure: a grid, a pulse, a single line of light that moves slowly. The manuscript is the surface. The future is the substrate.
+
+**Retro-future register.** 90s sci-fi meets Dead Sea Scrolls. Think about the aesthetic of early web design or speculative interfaces from Blade Runner, Dune (Villeneuve), the original Matrix — but rendered through the lens of sacred text rather than dystopia. Monospaced type for system-level labels. Three-letter abbreviations (SCR, APO, WAR) that feel like designations in a system you’re only seeing the surface of. A slow-moving scan line or ambient pulse that signals intelligence without ever becoming a tech demo.
+
+**Typography as architecture.** Cormorant Garamond or similar serif for headings — the manuscript voice. EB Garamond for body — readable, warm, ancient. JetBrains Mono or similar monospace for tags, labels, section markers — the system voice. The contrast between these two registers *is* the design. Ancient text. Living infrastructure.
+
+**Pacing and drama.** The current page is uniform in rhythm. Every section reads at the same scale and density. The redesign should shift registers. The hero should be massive and quiet. The transformation timeline should feel like a corridor you walk through. The manifesto lines should feel carved. The Wayfinder section should shift the temperature — slightly cooler, slightly more precise, the first time you feel the machine underneath the manuscript. The final CTA should be a single breath.
+
+**What to avoid.** No gradients. No glowing UI mockups. No “app screenshot” sections. No feature-card grids that look like every SaaS landing page. No buttons that feel like buttons. The CTAs should feel like inscriptions you choose to follow.
+
+**One memorable element.** Consider a single animated detail — a pulsing dot, a faint line that moves, something that breathes — placed at the moment Wayfinder is introduced. Just one thing that says: this is alive. The rest of the page is still. That contrast is the whole design.
+
+-----
+
+## Revised Copy
+
+-----
+
+### Nav
+
+The Way | Request Access
+
+-----
+
+### Hero
+
+**Tag:** Frontier Technology for the Body of Christ
+
+**Headline:** You are not who the world *made you.*
+
+**Scripture:** “If anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.”
+
+**Reference:** 2 Corinthians 5:17
+
+**CTA:** Request Early Access
+
+-----
+
+### I — The Transformation
+
+**Headline:** Every major information technology has *transformed the Church.*
+
+**Timeline:**
+
+- **1st Century — Oral to Scribal.** The apostles’ spoken witness became letters, codices, canon. The Word was fixed. It could travel.
+- **15th Century — Scribal to Print.** Gutenberg put Scripture in the hands of the people. The Reformation followed. Authority was redistributed.
+- **20th Century — Broadcast & Digital.** Radio, television, the internet. The Church reached millions. Scale was achieved. Something else was lost.
+- **Now — Artificial Intelligence.** The most consequential information technology since the written word. This transformation is happening. The question is who builds it.
+
+**Body:** Each transformation reshaped how people encountered God, understood Scripture, and formed as disciples. Each one was built by someone. AI will reshape the Body of Christ whether we participate or not. The Way exists to ensure that what gets built serves the Kingdom rather than replacing it.
+
+-----
+
+### II — The Crisis
+
+**Headline:** As the Church scaled from local to global, *discipleship suffered.*
+
+**Body:**
+
+We learned to fill rooms. We built platforms that reach millions. We got remarkably good at gathering. But gathering is not the same thing as forming. A stadium full of people who heard a message on Sunday and returned to the same identity patterns on Monday is not a discipleship failure of will. It is a failure of infrastructure.
+
+The early Church did not scale through content. It scaled through transformation. Through walking with people so closely that their identity was rebuilt from the ground up in Christ. Through the kind of sustained, intimate formation that the modern Church has largely outsourced to a weekly service and a devotional app.
+
+What transforms a human heart? The Word of God. The Holy Spirit. Real, lived community operating like the original Church did in Acts. We are here to replace none of those things. We are here to facilitate their reemergence as the Body of Christ transforms again.
+
+**Scripture:** “Do not be conformed to this world, but be transformed by the renewing of your mind.”
+
+**Reference:** Romans 12:2
+
+-----
+
+### III — The Foundation
+
+**Headline:** Before Jesus did anything, the Father declared *who he was.*
+
+**Sub:** “You are my Son, whom I love; with you I am well pleased.” — Matthew 3:17
+
+**Body:**
+
+Before the ministry. Before the miracles. Before the cross. Identity came first. Everything Jesus did flowed from a settled understanding of who he was in relationship to the Father.
+
+The enemy understands this. Satan’s first move is always against identity. Control who someone believes they are and you control everything that follows. The Way is built on the same sequence the Father used: identity before activity. Formation before information. Becoming before doing.
+
+**Manifesto:**
+
+01 — **Identity before activity.**
+Know who you are in Christ before anything you do. The old self was built on performance. The new self is built on sonship.
+
+02 — **Formation over information.**
+Deeper than content consumption. The slow, daily work of becoming someone new in Christ.
+
+03 — **Renewal as practice.**
+Romans 12:2 is not a one-time declaration. It is a discipline. A daily confrontation with the patterns the world wrote into you.
+
+-----
+
+### IV — Wayfinder
+
+**Label:** Wayfinder
+
+**Headline:** An AI trained on the *tradition*, built for *formation.*
+
+**Body:** Most AI gives you answers. Wayfinder gives you formation. It holds the thread of your growth over time, pressing into who you are and who you are becoming in Christ. It does not search the internet. It searches the tradition.
+
+**Capabilities:**
+
+**Scripture & Doctrine**
+Walk through a passage with the rigor of a theologian and the patience of a pastor. Original language, historical context, what the fathers said, and what it means for you today.
+
+**Apologetics**
+The world will challenge what you believe. Prepare to answer with clarity. The Resurrection. The problem of evil. The arguments you actually encounter, grounded in logic and the tradition.
+
+**Spiritual Warfare**
+The enemy’s tactics are ancient and patterned. Fear, accusation, division, confusion. Name what is happening, root it in Scripture, pray with authority. Awareness is the beginning of freedom.
+
+**Prayer & Renewal**
+A guide into deeper prayer. Intercessory depth, liturgical rhythm, the practiced silence the desert fathers understood. A daily rhythm that displaces the noise rather than competing with it.
+
+**Identity Reflection**
+The old self does not yield to information. It yields to repeated encounter with truth. Daily confrontation with your identity in Christ that slowly rewrites the story you have been living from.
+
+**The Church Fathers**
+Origen on spiritual warfare. Augustine on sin. Athanasius on the Incarnation. Chrysostom on radical living. Their writings are not relics. They are weapons. Made accessible and actionable.
+
+-----
+
+### V — The Vision
+
+**Headline:** The Body of Christ needs more than content. It needs *infrastructure.*
+
+**Body:**
+
+The early followers of The Way did not have institutions. They had identity, community, and the Spirit. They also turned the world upside down. What they lacked was scale. What we have lacked is depth. The question now is whether we build the technology that serves both.
+
+The Way is the identity layer. The place where someone discovers who they are in Christ, builds the habits of a new self, and carries that self into everything. Their work. Their community. The way they steward what God has placed in their hands.
+
+This is the foundation. What gets built on top of it is a question for the Spirit to answer over time. But if the Church is going to anchor something real in a world that is fragmenting, it needs people who actually know who they are.
+
+-----
+
+### Final CTA
+
+**Headline:** *The new has come.* Begin the work.
+
+**Sub:** We are building with a small group of believers first.
+
+**CTA:** Request Access
+
+-----
+
+### Footer
+
+The Way · 2026
