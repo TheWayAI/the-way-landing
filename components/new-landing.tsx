@@ -13,16 +13,24 @@ const RED = "#d63030"          // logo dot red
 const BLUE_20 = "rgba(74,124,191,0.2)"
 const BLUE_10 = "rgba(74,124,191,0.1)"
 const RED_20 = "rgba(214,48,48,0.2)"
+const WHITE_90 = "rgba(247,245,240,0.9)"
 const WHITE_80 = "rgba(247,245,240,0.8)"
+const WHITE_65 = "rgba(247,245,240,0.65)"
 const WHITE_50 = "rgba(247,245,240,0.5)"
-const WHITE_25 = "rgba(247,245,240,0.25)"
+const WHITE_35 = "rgba(247,245,240,0.35)"
+const WHITE_20 = "rgba(247,245,240,0.2)"
 const DARK_80 = "rgba(28,23,16,0.8)"
+const DARK_65 = "rgba(28,23,16,0.65)"
 const DARK_50 = "rgba(28,23,16,0.5)"
+const DARK_30 = "rgba(28,23,16,0.3)"
 const DARK_20 = "rgba(28,23,16,0.2)"
+const DARK_15 = "rgba(28,23,16,0.15)"
 const DARK_10 = "rgba(28,23,16,0.1)"
+const DARK_08 = "rgba(28,23,16,0.08)"
+const WHITE_25 = "rgba(247,245,240,0.25)"
 
 /* ─── Decorative SVG elements ─── */
-function CompassRose({ size = 120, color = DARK_20 }: { size?: number; color?: string }) {
+function CompassRose({ size = 120, color = DARK_15 }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Outer circle */}
@@ -79,8 +87,8 @@ function MapDot({ color = RED, size = 8, pulse = false }: { color?: string; size
 }
 
 function SectionRule({ light = false }: { light?: boolean }) {
-  const lineColor = light ? WHITE_25 : DARK_20
-  const dotColor = light ? WHITE_50 : DARK_20
+  const lineColor = light ? WHITE_35 : DARK_20
+  const dotColor = light ? WHITE_65 : DARK_30
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "0", justifyContent: "center", margin: "0 auto", width: "200px" }}>
       <div style={{ flex: 1, height: "1px", backgroundColor: lineColor }} />
@@ -224,8 +232,8 @@ function MonoLabel({ children, color }: { children: React.ReactNode; color?: str
   return (
     <span style={{
       fontFamily: "var(--font-mono), monospace",
-      fontSize: "9px",
-      letterSpacing: "0.32em",
+      fontSize: "10px",
+      letterSpacing: "0.28em",
       textTransform: "uppercase",
       color: color ?? DARK_50,
       display: "block",
@@ -338,10 +346,10 @@ export function NewLanding() {
             <cite
               style={{
                 fontFamily: "var(--font-mono), monospace",
-                fontSize: "9px",
+                fontSize: "10px",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                color: DARK_20,
+                color: DARK_50,
                 fontStyle: "normal",
               }}
             >
@@ -388,7 +396,7 @@ export function NewLanding() {
 
         <div style={{ maxWidth: "680px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "64px" }}>
-            <MonoLabel color={WHITE_25}>§ I — The Transformation</MonoLabel>
+            <MonoLabel color={WHITE_65}>§ I — The Transformation</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
               <SectionRule light />
             </div>
@@ -476,8 +484,8 @@ export function NewLanding() {
                     <span
                       style={{
                         fontFamily: "var(--font-mono), monospace",
-                        fontSize: "9px",
-                        letterSpacing: "0.25em",
+                        fontSize: "10px",
+                        letterSpacing: "0.22em",
                         textTransform: "uppercase",
                         color: item.highlight ? RED : BLUE,
                       }}
@@ -487,8 +495,8 @@ export function NewLanding() {
                     <span
                       style={{
                         fontFamily: "var(--font-mono), monospace",
-                        fontSize: "8px",
-                        color: WHITE_25,
+                        fontSize: "9px",
+                        color: WHITE_50,
                         letterSpacing: "0.12em",
                       }}
                     >
@@ -511,26 +519,27 @@ export function NewLanding() {
             ))}
           </div>
 
-          <div className="reveal" style={{ marginTop: "56px", paddingTop: "40px", borderTop: `1px solid ${WHITE_25}` }}>
+          <div className="reveal" style={{ marginTop: "56px", paddingTop: "40px", borderTop: `1px solid ${WHITE_35}` }}>
             <p
               style={{
                 fontFamily: "var(--font-body), Georgia, serif",
                 fontSize: "1.05rem",
-                color: WHITE_50,
+                color: WHITE_80,
                 lineHeight: 1.85,
                 textAlign: "center",
               }}
             >
-              AI will reshape the Body of Christ whether we participate or not. The Way exists to ensure that what gets built serves the Kingdom rather than replacing it.
+              AI will reshape the Body of Christ whether we participate or not.{" "}
+              <strong style={{ color: LIGHT, fontWeight: 500 }}>The Way exists to ensure that what gets built serves the Kingdom</strong> rather than replacing it.
             </p>
           </div>
         </div>
 
         {/* Bottom divider with red dot */}
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_25 }} />
+          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
           <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_25 }} />
+          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
         </div>
       </section>
 
@@ -538,7 +547,7 @@ export function NewLanding() {
       <section style={{ backgroundColor: LIGHT, padding: "96px 0 108px" }}>
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px" }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
-            <MonoLabel color={DARK_20}>§ II — The Crisis</MonoLabel>
+            <MonoLabel color={DARK_50}>§ II — The Crisis</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
               <SectionRule />
             </div>
@@ -557,25 +566,24 @@ export function NewLanding() {
             </h2>
           </div>
 
-          <div className="reveal">
-            {[
-              "We learned to fill rooms. We built platforms that reach millions. We got remarkably good at gathering. But gathering is not the same thing as forming. A stadium full of people who heard a message on Sunday and returned to the same identity patterns on Monday is not a discipleship failure of will. It is a failure of infrastructure.",
-              "The early Church did not scale through content. It scaled through transformation. Through walking with people so closely that their identity was rebuilt from the ground up in Christ. Through the kind of sustained, intimate formation that the modern Church has largely outsourced to a weekly service and a devotional app.",
-              "What transforms a human heart? The Word of God. The Holy Spirit. Real, lived community operating like the original Church did in Acts. We are here to replace none of those things. We are here to facilitate their reemergence as the Body of Christ transforms again.",
-            ].map((para, i) => (
-              <p
-                key={i}
-                style={{
-                  fontFamily: "var(--font-body), Georgia, serif",
-                  fontSize: "1.05rem",
-                  color: DARK_80,
-                  lineHeight: 1.85,
-                  marginBottom: i < 2 ? "22px" : "0",
-                }}
-              >
-                {para}
-              </p>
-            ))}
+          <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: DARK_65, lineHeight: 1.85 }}>
+              We learned to fill rooms. We built platforms that reach millions. We got remarkably good at gathering. But{" "}
+              <strong style={{ color: DARK, fontWeight: 600 }}>gathering is not the same thing as forming.</strong>{" "}
+              A stadium full of people who heard a message on Sunday and returned to the same identity patterns on Monday is not a discipleship failure of will. It is a{" "}
+              <strong><em>failure of infrastructure.</em></strong>
+            </p>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: DARK_65, lineHeight: 1.85 }}>
+              The early Church did not scale through content. It scaled through{" "}
+              <strong style={{ color: DARK, fontWeight: 600 }}>transformation.</strong>{" "}
+              Through walking with people so closely that their identity was rebuilt from the ground up in Christ. Through the kind of sustained, intimate{" "}
+              <em>formation</em> that the modern Church has largely outsourced to a weekly service and a devotional app.
+            </p>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: DARK_65, lineHeight: 1.85 }}>
+              What transforms a human heart?{" "}
+              <strong style={{ color: DARK, fontWeight: 600 }}>The Word of God. The Holy Spirit.</strong>{" "}
+              Real, lived community operating like the original Church did in Acts. We are here to replace none of those things. We are here to facilitate their reemergence as the Body of Christ transforms again.
+            </p>
           </div>
 
           <div
@@ -615,7 +623,7 @@ export function NewLanding() {
 
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
-            <MonoLabel color={WHITE_25}>§ III — The Foundation</MonoLabel>
+            <MonoLabel color={WHITE_65}>§ III — The Foundation</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
               <SectionRule light />
             </div>
@@ -640,7 +648,7 @@ export function NewLanding() {
               textAlign: "center",
               marginBottom: "48px",
               padding: "32px 28px",
-              border: `1px solid ${WHITE_25}`,
+              border: `1px solid ${WHITE_35}`,
               borderTop: `3px solid ${BLUE}`,
             }}
           >
@@ -659,43 +667,35 @@ export function NewLanding() {
             <MonoLabel color={BLUE}>Matthew 3:17</MonoLabel>
           </div>
 
-          <div className="reveal" style={{ marginBottom: "52px" }}>
-            {[
-              "Before the ministry. Before the miracles. Before the cross. Identity came first. Everything Jesus did flowed from a settled understanding of who he was in relationship to the Father.",
-              "The enemy understands this. Satan's first move is always against identity. Control who someone believes they are and you control everything that follows. The Way is built on the same sequence the Father used: identity before activity. Formation before information. Becoming before doing.",
-            ].map((para, i) => (
-              <p
-                key={i}
-                style={{
-                  fontFamily: "var(--font-body), Georgia, serif",
-                  fontSize: "1.05rem",
-                  color: WHITE_50,
-                  lineHeight: 1.85,
-                  marginBottom: i === 0 ? "20px" : "0",
-                }}
-              >
-                {para}
-              </p>
-            ))}
+          <div className="reveal" style={{ marginBottom: "52px", display: "flex", flexDirection: "column", gap: "20px" }}>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: WHITE_80, lineHeight: 1.85 }}>
+              Before the ministry. Before the miracles. Before the cross.{" "}
+              <strong style={{ color: LIGHT, fontWeight: 600 }}>Identity came first.</strong>{" "}
+              Everything Jesus did flowed from a settled understanding of who he was in relationship to the Father.
+            </p>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: WHITE_80, lineHeight: 1.85 }}>
+              The enemy understands this. Satan&apos;s first move is <em>always</em> against identity. Control who someone believes they are and you control everything that follows. The Way is built on the same sequence the Father used:{" "}
+              <strong style={{ color: LIGHT, fontWeight: 600 }}>identity before activity. Formation before information. Becoming before doing.</strong>
+            </p>
           </div>
 
           {/* Manifesto — carved in light */}
-          <div style={{ borderTop: `1px solid ${WHITE_25}` }}>
+          <div style={{ borderTop: `1px solid ${WHITE_35}` }}>
             {[
               {
                 n: "01",
                 title: "Identity before activity.",
-                body: "Know who you are in Christ before anything you do. The old self was built on performance. The new self is built on sonship.",
+                body: <>Know who you are in Christ <em>before anything you do.</em> The old self was built on performance. The new self is built on <strong style={{ color: LIGHT, fontWeight: 500 }}>sonship.</strong></>,
               },
               {
                 n: "02",
                 title: "Formation over information.",
-                body: "Deeper than content consumption. The slow, daily work of becoming someone new in Christ.",
+                body: <>Deeper than content consumption. The slow, daily work of <strong style={{ color: LIGHT, fontWeight: 500 }}>becoming someone new</strong> in Christ.</>,
               },
               {
                 n: "03",
                 title: "Renewal as practice.",
-                body: "Romans 12:2 is not a one-time declaration. It is a discipline. A daily confrontation with the patterns the world wrote into you.",
+                body: <>Romans 12:2 is not a one-time declaration. It is a <strong style={{ color: LIGHT, fontWeight: 500 }}>discipline.</strong> A daily confrontation with the patterns the world wrote into you.</>,
               },
             ].map((item, i) => (
               <div
@@ -703,7 +703,7 @@ export function NewLanding() {
                 className="reveal"
                 style={{
                   padding: "32px 0",
-                  borderBottom: `1px solid ${WHITE_25}`,
+                  borderBottom: `1px solid ${WHITE_35}`,
                   display: "grid",
                   gridTemplateColumns: "36px 1fr",
                   gap: "24px",
@@ -714,7 +714,7 @@ export function NewLanding() {
                 <span
                   style={{
                     fontFamily: "var(--font-mono), monospace",
-                    fontSize: "9px",
+                    fontSize: "11px",
                     color: RED,
                     letterSpacing: "0.15em",
                     paddingTop: "5px",
@@ -726,8 +726,8 @@ export function NewLanding() {
                   <p
                     style={{
                       fontFamily: "var(--font-serif), Georgia, serif",
-                      fontSize: "1.25rem",
-                      fontWeight: 400,
+                      fontSize: "1.3rem",
+                      fontWeight: 500,
                       color: LIGHT,
                       marginBottom: "10px",
                       lineHeight: 1.3,
@@ -738,8 +738,8 @@ export function NewLanding() {
                   <p
                     style={{
                       fontFamily: "var(--font-body), Georgia, serif",
-                      fontSize: "0.97rem",
-                      color: WHITE_50,
+                      fontSize: "1rem",
+                      color: WHITE_80,
                       lineHeight: 1.8,
                     }}
                   >
@@ -752,9 +752,9 @@ export function NewLanding() {
         </div>
 
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_25 }} />
+          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
           <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_25 }} />
+          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
         </div>
       </section>
 
@@ -783,7 +783,7 @@ export function NewLanding() {
               <div style={{ width: "32px", height: "1px", backgroundColor: DARK_10 }} />
             </div>
 
-            <MonoLabel color={DARK_20}>§ IV — Wayfinder</MonoLabel>
+            <MonoLabel color={DARK_50}>§ IV — Wayfinder</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
               <SectionRule />
             </div>
@@ -805,13 +805,16 @@ export function NewLanding() {
               style={{
                 fontFamily: "var(--font-body), Georgia, serif",
                 fontSize: "1.05rem",
-                color: DARK_50,
+                color: DARK_65,
                 lineHeight: 1.85,
                 maxWidth: "500px",
                 margin: "0 auto",
               }}
             >
-              Most AI gives you answers. Wayfinder gives you formation. It holds the thread of your growth over time, pressing into who you are and who you are becoming in Christ. It does not search the internet. It searches the tradition.
+              Most AI gives you answers.{" "}
+              <strong style={{ color: DARK, fontWeight: 600 }}>Wayfinder gives you formation.</strong>{" "}
+              It holds the thread of your growth over time, pressing into who you are and who you are becoming in Christ. It does not search the internet.{" "}
+              <em>It searches the tradition.</em>
             </p>
           </div>
 
@@ -843,10 +846,9 @@ export function NewLanding() {
                   <span
                     style={{
                       fontFamily: "var(--font-mono), monospace",
-                      fontSize: "8px",
-                      letterSpacing: "0.15em",
+                      fontSize: "10px",
+                      letterSpacing: "0.12em",
                       color: item.dot,
-                      opacity: 0.8,
                     }}
                   >
                     {item.code}
@@ -890,7 +892,7 @@ export function NewLanding() {
 
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
-            <MonoLabel color={WHITE_25}>§ V — The Vision</MonoLabel>
+            <MonoLabel color={WHITE_65}>§ V — The Vision</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
               <SectionRule light />
             </div>
@@ -910,32 +912,27 @@ export function NewLanding() {
             </h2>
           </div>
 
-          <div className="reveal">
-            {[
-              "The early followers of The Way did not have institutions. They had identity, community, and the Spirit. They also turned the world upside down. What they lacked was scale. What we have lacked is depth. The question now is whether we build the technology that serves both.",
-              "The Way is the identity layer. The place where someone discovers who they are in Christ, builds the habits of a new self, and carries that self into everything. Their work. Their community. The way they steward what God has placed in their hands.",
-              "This is the foundation. What gets built on top of it is a question for the Spirit to answer over time. But if the Church is going to anchor something real in a world that is fragmenting, it needs people who actually know who they are.",
-            ].map((para, i) => (
-              <p
-                key={i}
-                style={{
-                  fontFamily: "var(--font-body), Georgia, serif",
-                  fontSize: "1.05rem",
-                  color: WHITE_50,
-                  lineHeight: 1.85,
-                  marginBottom: i < 2 ? "22px" : "0",
-                }}
-              >
-                {para}
-              </p>
-            ))}
+          <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: WHITE_80, lineHeight: 1.85 }}>
+              The early followers of The Way did not have institutions. They had{" "}
+              <strong style={{ color: LIGHT, fontWeight: 600 }}>identity, community, and the Spirit.</strong>{" "}
+              They also turned the world upside down. What they lacked was scale. What we have lacked is depth. The question now is whether we build the technology that serves both.
+            </p>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: WHITE_80, lineHeight: 1.85 }}>
+              The Way is <strong><em>the identity layer.</em></strong>{" "}
+              The place where someone discovers who they are in Christ, builds the habits of a new self, and carries that self into everything. Their work. Their community. The way they steward what God has placed in their hands.
+            </p>
+            <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "1.05rem", color: WHITE_80, lineHeight: 1.85 }}>
+              This is the foundation. What gets built on top of it is a question for the Spirit to answer over time. But if the Church is going to anchor something real in a world that is fragmenting, it needs people who{" "}
+              <strong style={{ color: LIGHT, fontWeight: 600 }}>actually know who they are.</strong>
+            </p>
           </div>
         </div>
 
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_25 }} />
+          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
           <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_25 }} />
+          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
         </div>
       </section>
 
@@ -1054,7 +1051,7 @@ export function NewLanding() {
         style={{
           backgroundColor: DARK,
           padding: "28px 28px",
-          borderTop: `1px solid ${WHITE_25}`,
+          borderTop: `1px solid ${WHITE_35}`,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -1071,9 +1068,9 @@ export function NewLanding() {
           <span
             style={{
               fontFamily: "var(--font-mono), monospace",
-              fontSize: "9px",
+              fontSize: "10px",
               letterSpacing: "0.22em",
-              color: WHITE_25,
+              color: WHITE_65,
               textTransform: "uppercase",
             }}
           >
