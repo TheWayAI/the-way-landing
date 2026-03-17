@@ -30,23 +30,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -58,8 +41,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background-color: #f0e8d4;
-    color: #1a1510;
+    background-color: #f7f5f0;
+    color: #1c1710;
   }
 }
 
@@ -78,52 +61,35 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Parchment grain texture */
-.parchment {
-  background-color: #f0e8d4;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.055'/%3E%3C/svg%3E");
+/* Section backgrounds */
+.bg-light {
+  background-color: #f7f5f0;
 }
-
-.parchment-dark {
-  background-color: #e8ddc4;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.07'/%3E%3C/svg%3E");
+.bg-dark {
+  background-color: #1c1710;
 }
 
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.95s ease, transform 0.95s ease;
+  transform: translateY(14px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .reveal.visible {
   opacity: 1;
   transform: none;
 }
 
-/* Pulse animation for Wayfinder */
+/* Red dot pulse — the logo's living element */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
 }
-
 .pulse-dot {
-  animation: pulse-dot 2.8s ease-in-out infinite;
-}
-
-/* Scan line */
-@keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(400%); }
-}
-
-.scan-line {
-  animation: scan 6s linear infinite;
+  animation: pulse-dot 2.6s ease-in-out infinite;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #e8ddc4; }
-::-webkit-scrollbar-thumb { background: #1a1510; opacity: 0.3; }
-::-webkit-scrollbar-thumb:hover { background: #1a1510; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f7f5f0; }
+::-webkit-scrollbar-thumb { background: #1c1710; opacity: 0.2; }
