@@ -1,18 +1,24 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Crimson_Text, Oswald } from "next/font/google"
+import { Cormorant_Garamond, EB_Garamond, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
-const crimsonText = Crimson_Text({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-serif",
 })
-const oswald = Oswald({
+const ebGaramond = EB_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-body",
+})
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
 })
 
 export const metadata: Metadata = {
@@ -46,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${crimsonText.variable} ${oswald.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${cormorant.variable} ${ebGaramond.variable} ${jetbrainsMono.variable} antialiased`}>{children}</body>
     </html>
   )
 }
