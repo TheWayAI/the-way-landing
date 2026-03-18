@@ -30,9 +30,9 @@ const DARK_08 = "rgba(28,23,16,0.08)"
 const WHITE_25 = "rgba(247,245,240,0.25)"
 
 /* ─── Decorative SVG elements ─── */
-function CompassRose({ size = 120, color = DARK_15 }: { size?: number; color?: string }) {
+function CompassRose({ size = 120, color = DARK_15, className }: { size?: number; color?: string; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       {/* Outer circle */}
       <circle cx="60" cy="60" r="56" stroke={color} strokeWidth="0.5" />
       {/* Inner circle */}
@@ -61,11 +61,33 @@ function CompassRose({ size = 120, color = DARK_15 }: { size?: number; color?: s
   )
 }
 
-function TriangleMark({ size = 40, color = DARK_20 }: { size?: number; color?: string }) {
+function TriangleMark({ size = 40, color = DARK_20, className }: { size?: number; color?: string; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <polygon points="20,4 36,34 4,34" stroke={color} strokeWidth="1" fill="none" />
       <polygon points="20,10 31,30 9,30" stroke={color} strokeWidth="0.4" fill="none" />
+    </svg>
+  )
+}
+
+/* Radar / tech-themed graphic for dark sections */
+function RadarSweep({ size = 200, color = WHITE_20, className }: { size?: number; color?: string; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      {/* Concentric arcs */}
+      <circle cx="60" cy="60" r="56" stroke={color} strokeWidth="0.6" fill="none" />
+      <circle cx="60" cy="60" r="42" stroke={color} strokeWidth="0.5" fill="none" />
+      <circle cx="60" cy="60" r="28" stroke={color} strokeWidth="0.5" fill="none" />
+      <circle cx="60" cy="60" r="14" stroke={color} strokeWidth="0.5" fill="none" />
+      {/* Cross hairs */}
+      <line x1="60" y1="4" x2="60" y2="116" stroke={color} strokeWidth="0.5" />
+      <line x1="4" y1="60" x2="116" y2="60" stroke={color} strokeWidth="0.5" />
+      {/* Diagonal sweep lines */}
+      <line x1="60" y1="60" x2="60" y2="4" stroke={color} strokeWidth="0.4" strokeDasharray="2 3" />
+      <line x1="60" y1="60" x2="100" y2="20" stroke={color} strokeWidth="0.3" strokeDasharray="1 4" />
+      <line x1="60" y1="60" x2="116" y2="60" stroke={color} strokeWidth="0.3" strokeDasharray="1 4" />
+      {/* Center blip */}
+      <circle cx="60" cy="60" r="3" fill={color} />
     </svg>
   )
 }
@@ -147,9 +169,7 @@ function Nav() {
           </Link>
 
           <a
-            href="https://theway.masterymade.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#email-signup"
             className="hidden md:inline-block"
             style={{
               fontFamily: "var(--font-mono), monospace",
@@ -188,9 +208,7 @@ function Nav() {
         {isOpen && (
           <div style={{ padding: "16px 0 20px", borderTop: `1px solid ${DARK_10}` }}>
             <a
-              href="https://theway.masterymade.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#email-signup"
               style={{
                 display: "block",
                 textAlign: "center",
@@ -202,6 +220,7 @@ function Nav() {
                 textDecoration: "none",
                 padding: "12px 0",
               }}
+              onClick={() => setIsOpen(false)}
             >
               Request Access
             </a>
@@ -266,15 +285,15 @@ export function NewLanding() {
           paddingBottom: "60px",
         }}
       >
-        {/* Compass rose — top right decorative */}
-        <div style={{ position: "absolute", top: "60px", right: "40px", opacity: 0.35 }}>
-          <CompassRose size={140} color={DARK_20} />
+        {/* Compass rose — top right decorative (larger on desktop) */}
+        <div className="w-[140px] md:w-[240px] h-[140px] md:h-[240px] opacity-40 md:opacity-50" style={{ position: "absolute", top: "60px", right: "40px" }}>
+          <CompassRose size={240} color={DARK_20} className="w-full h-full" />
         </div>
-        {/* Triangle mark — bottom left */}
-        <div style={{ position: "absolute", bottom: "48px", left: "40px", opacity: 0.25 }}>
-          <TriangleMark size={56} color={DARK_20} />
+        {/* Triangle mark — bottom left (larger on desktop) */}
+        <div className="w-[56px] md:w-[100px] h-[56px] md:h-[100px] opacity-30 md:opacity-40" style={{ position: "absolute", bottom: "48px", left: "40px" }}>
+          <TriangleMark size={100} color={DARK_20} className="w-full h-full" />
         </div>
-        {/* Coordinate tick marks — corners */}
+        {/* Coordinate tick marks — corners (bigger on desktop) */}
         {[
           { top: 72, left: 28 },
           { top: 72, right: 28 },
@@ -283,10 +302,9 @@ export function NewLanding() {
         ].map((pos, i) => (
           <div
             key={i}
+            className="w-3 h-3 md:w-5 md:h-5"
             style={{
               position: "absolute",
-              width: "12px",
-              height: "12px",
               borderTop: i < 2 ? `1px solid ${DARK_20}` : undefined,
               borderBottom: i >= 2 ? `1px solid ${DARK_20}` : undefined,
               borderLeft: i % 2 === 0 ? `1px solid ${DARK_20}` : undefined,
@@ -301,8 +319,8 @@ export function NewLanding() {
             <Image
               src="/thewaylogo.jpeg"
               alt="The Way"
-              width={80}
-              height={80}
+              width={110}
+              height={110}
               style={{ objectFit: "contain", margin: "0 auto" }}
               priority
             />
@@ -358,18 +376,17 @@ export function NewLanding() {
           </blockquote>
 
           <a
-            href="https://theway.masterymade.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#email-signup"
             style={{
               fontFamily: "var(--font-mono), monospace",
-              fontSize: "10px",
-              letterSpacing: "0.25em",
+              fontSize: "clamp(12px, 1.4vw, 14px)",
+              letterSpacing: "0.28em",
               textTransform: "uppercase",
               color: DARK,
+              fontWeight: 600,
               textDecoration: "none",
-              borderBottom: `1px solid ${DARK_50}`,
-              paddingBottom: "3px",
+              borderBottom: `2px solid ${DARK_50}`,
+              paddingBottom: "4px",
               display: "inline-block",
             }}
           >
@@ -389,9 +406,9 @@ export function NewLanding() {
       <section
         style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}
       >
-        {/* Background compass — faint */}
-        <div style={{ position: "absolute", top: "50%", right: "-40px", transform: "translateY(-50%)", opacity: 0.06 }}>
-          <CompassRose size={320} color={LIGHT} />
+        {/* Background radar — tech-themed, more visible on desktop */}
+        <div className="w-[280px] md:w-[480px] h-[280px] md:h-[480px] opacity-[0.08] md:opacity-[0.12]" style={{ position: "absolute", top: "50%", right: "-60px", transform: "translateY(-50%)" }}>
+          <RadarSweep size={480} color={LIGHT} className="w-full h-full" />
         </div>
 
         <div style={{ maxWidth: "680px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
@@ -613,12 +630,16 @@ export function NewLanding() {
 
       {/* ══════ III — THE FOUNDATION — DARK ══════ */}
       <section style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
-        {/* Faint triangle decoration */}
-        <div style={{ position: "absolute", top: "40px", left: "40px", opacity: 0.06 }}>
-          <TriangleMark size={120} color={LIGHT} />
+        {/* Radar — tech-themed corner accent */}
+        <div className="w-[160px] md:w-[280px] h-[160px] md:h-[280px] opacity-[0.07] md:opacity-[0.11]" style={{ position: "absolute", top: "40px", right: "40px" }}>
+          <RadarSweep size={280} color={WHITE_25} className="w-full h-full" />
         </div>
-        <div style={{ position: "absolute", bottom: "40px", right: "40px", opacity: 0.04 }}>
-          <TriangleMark size={200} color={BLUE} />
+        {/* Triangle decorations — larger on desktop */}
+        <div className="w-[100px] md:w-[180px] h-[100px] md:h-[180px] opacity-[0.08] md:opacity-[0.12]" style={{ position: "absolute", top: "40px", left: "40px" }}>
+          <TriangleMark size={180} color={LIGHT} className="w-full h-full" />
+        </div>
+        <div className="w-[160px] md:w-[280px] h-[160px] md:h-[280px] opacity-[0.06] md:opacity-[0.1]" style={{ position: "absolute", bottom: "40px", right: "40px" }}>
+          <TriangleMark size={280} color={BLUE} className="w-full h-full" />
         </div>
 
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
@@ -760,18 +781,20 @@ export function NewLanding() {
 
       {/* ══════ IV — WAYFINDER — LIGHT ══════ */}
       <section style={{ backgroundColor: LIGHT, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
-        {/* Large compass behind the section */}
+        {/* Large compass behind the section — more visible on desktop */}
         <div
+          className="opacity-[0.045] md:opacity-[0.08]"
           style={{
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            opacity: 0.045,
+            width: "min(520px, 45vw)",
+            height: "min(520px, 45vw)",
             pointerEvents: "none",
           }}
         >
-          <CompassRose size={520} color={DARK} />
+          <CompassRose size={520} color={DARK} className="w-full h-full" />
         </div>
 
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
@@ -886,8 +909,9 @@ export function NewLanding() {
 
       {/* ══════ V — THE VISION — DARK ══════ */}
       <section style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", bottom: "30px", right: "30px", opacity: 0.05 }}>
-          <CompassRose size={200} color={BLUE} />
+        {/* Radar — tech-themed, larger on desktop */}
+        <div className="w-[180px] md:w-[320px] h-[180px] md:h-[320px] opacity-[0.07] md:opacity-[0.12]" style={{ position: "absolute", bottom: "30px", right: "30px" }}>
+          <RadarSweep size={320} color={BLUE} className="w-full h-full" />
         </div>
 
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
@@ -937,12 +961,12 @@ export function NewLanding() {
       </section>
 
       {/* ══════ FINAL CTA — LIGHT ══════ */}
-      <section style={{ backgroundColor: LIGHT, padding: "112px 0 128px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50px", left: "50px", opacity: 0.2 }}>
-          <TriangleMark size={48} color={DARK_20} />
+      <section id="email-signup" style={{ backgroundColor: LIGHT, padding: "112px 0 128px", position: "relative", overflow: "hidden", scrollMarginTop: "84px" }}>
+        <div className="w-[48px] md:w-[90px] h-[48px] md:h-[90px] opacity-20 md:opacity-30" style={{ position: "absolute", top: "50px", left: "50px" }}>
+          <TriangleMark size={90} color={DARK_20} className="w-full h-full" />
         </div>
-        <div style={{ position: "absolute", bottom: "50px", right: "50px", opacity: 0.15 }}>
-          <CompassRose size={90} color={DARK_20} />
+        <div className="w-[90px] md:w-[160px] h-[90px] md:h-[160px] opacity-[0.15] md:opacity-25" style={{ position: "absolute", bottom: "50px", right: "50px" }}>
+          <CompassRose size={160} color={DARK_20} className="w-full h-full" />
         </div>
         {[
           { top: 40, left: 20 },
@@ -952,10 +976,9 @@ export function NewLanding() {
         ].map((pos, i) => (
           <div
             key={i}
+            className="w-3 h-3 md:w-5 md:h-5"
             style={{
               position: "absolute",
-              width: "12px",
-              height: "12px",
               borderTop: i < 2 ? `1px solid ${DARK_10}` : undefined,
               borderBottom: i >= 2 ? `1px solid ${DARK_10}` : undefined,
               borderLeft: i % 2 === 0 ? `1px solid ${DARK_10}` : undefined,
@@ -1055,6 +1078,8 @@ export function NewLanding() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "16px",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -1077,7 +1102,48 @@ export function NewLanding() {
             The Way · 2026
           </span>
         </div>
-        <MapDot color={RED} size={5} />
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <a
+            href="https://ascendance.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+              color: WHITE_65,
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget
+              el.style.color = WHITE_90
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget
+              el.style.color = WHITE_65
+            }}
+          >
+            <Image
+              src="/Ascendance White Icon.png"
+              alt="Ascendance"
+              width={18}
+              height={18}
+              style={{ objectFit: "contain" }}
+            />
+            <span
+              style={{
+                fontFamily: "var(--font-mono), monospace",
+                fontSize: "9px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+              }}
+            >
+              An Ascendance Company
+            </span>
+          </a>
+          <MapDot color={RED} size={5} />
+        </div>
       </footer>
     </main>
   )
