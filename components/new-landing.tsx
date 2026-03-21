@@ -70,6 +70,15 @@ function TriangleMark({ size = 40, color = DARK_20, className }: { size?: number
   )
 }
 
+function LatinCross({ size = 96, color = DARK_20, className }: { size?: number; color?: string; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <rect x="43" y="12" width="10" height="72" rx="2" fill={color} />
+      <rect x="24" y="31" width="48" height="10" rx="2" fill={color} />
+    </svg>
+  )
+}
+
 /* Radar / tech-themed graphic for dark sections */
 function RadarSweep({ size = 200, color = WHITE_20, className }: { size?: number; color?: string; className?: string }) {
   return (
@@ -525,12 +534,6 @@ export function NewLanding() {
           </a>
         </div>
 
-        {/* Bottom thin rule with red dot */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: DARK_10 }} />
-          <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: DARK_10 }} />
-        </div>
       </section>
 
       {/* ══════ I — THE TRANSFORMATION — DARK ══════ */}
@@ -683,16 +686,13 @@ export function NewLanding() {
           </div>
         </div>
 
-        {/* Bottom divider with red dot */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
-          <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
-        </div>
       </section>
 
       {/* ══════ II — THE CRISIS — LIGHT ══════ */}
-      <section style={{ backgroundColor: LIGHT, padding: "96px 0 108px" }}>
+      <section style={{ backgroundColor: LIGHT, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
+        <div className="w-[72px] md:w-[120px] h-[72px] md:h-[120px] opacity-[0.06] md:opacity-[0.1]" style={{ position: "absolute", top: "40px", left: "40px" }}>
+          <LatinCross size={120} color={DARK_20} className="w-full h-full" />
+        </div>
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px" }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
             <MonoLabel color={DARK_50}>§ II — The Crisis</MonoLabel>
@@ -765,12 +765,12 @@ export function NewLanding() {
         <div className="w-[160px] md:w-[280px] h-[160px] md:h-[280px] opacity-[0.07] md:opacity-[0.11]" style={{ position: "absolute", top: "40px", right: "40px" }}>
           <RadarSweep size={280} color={WHITE_25} className="w-full h-full" />
         </div>
-        {/* Triangle decorations — larger on desktop */}
+        {/* Christian symbol decorations — larger on desktop */}
         <div className="w-[100px] md:w-[180px] h-[100px] md:h-[180px] opacity-[0.08] md:opacity-[0.12]" style={{ position: "absolute", top: "40px", left: "40px" }}>
-          <TriangleMark size={180} color={LIGHT} className="w-full h-full" />
+          <TriangleMark size={180} color={WHITE_35} className="w-full h-full" />
         </div>
-        <div className="w-[160px] md:w-[280px] h-[160px] md:h-[280px] opacity-[0.06] md:opacity-[0.1]" style={{ position: "absolute", bottom: "40px", right: "40px" }}>
-          <TriangleMark size={280} color={BLUE} className="w-full h-full" />
+        <div className="w-[160px] md:w-[280px] h-[160px] md:h-[280px] opacity-[0.08] md:opacity-[0.12]" style={{ position: "absolute", bottom: "40px", right: "40px" }}>
+          <LatinCross size={280} color={WHITE_35} className="w-full h-full" />
         </div>
 
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
@@ -903,11 +903,6 @@ export function NewLanding() {
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
-          <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
-        </div>
       </section>
 
       {/* ══════ IV — WAYFINDER — LIGHT ══════ */}
@@ -1042,7 +1037,7 @@ export function NewLanding() {
       <section style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
         {/* Radar — tech-themed, larger on desktop */}
         <div className="w-[180px] md:w-[320px] h-[180px] md:h-[320px] opacity-[0.07] md:opacity-[0.12]" style={{ position: "absolute", bottom: "30px", right: "30px" }}>
-          <RadarSweep size={320} color={BLUE} className="w-full h-full" />
+          <RadarSweep size={320} color={WHITE_25} className="w-full h-full" />
         </div>
 
         <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
@@ -1084,20 +1079,15 @@ export function NewLanding() {
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", alignItems: "center" }}>
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
-          <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: RED, margin: "0 12px" }} />
-          <div style={{ flex: 1, height: "1px", backgroundColor: WHITE_35 }} />
-        </div>
       </section>
 
       {/* ══════ FINAL CTA — LIGHT ══════ */}
       <section id="email-signup" style={{ backgroundColor: LIGHT, padding: "112px 0 128px", position: "relative", overflow: "hidden", scrollMarginTop: "84px" }}>
-        <div className="w-[48px] md:w-[90px] h-[48px] md:h-[90px] opacity-20 md:opacity-30" style={{ position: "absolute", top: "50px", left: "50px" }}>
-          <TriangleMark size={90} color={DARK_20} className="w-full h-full" />
-        </div>
-        <div className="w-[90px] md:w-[160px] h-[90px] md:h-[160px] opacity-[0.15] md:opacity-25" style={{ position: "absolute", bottom: "50px", right: "50px" }}>
+        <div className="w-[90px] md:w-[160px] h-[90px] md:h-[160px] opacity-[0.15] md:opacity-25" style={{ position: "absolute", top: "50px", left: "50px" }}>
           <CompassRose size={160} color={DARK_20} className="w-full h-full" />
+        </div>
+        <div className="w-[72px] md:w-[120px] h-[72px] md:h-[120px] opacity-[0.06] md:opacity-[0.1]" style={{ position: "absolute", bottom: "50px", right: "50px" }}>
+          <LatinCross size={120} color={DARK_20} className="w-full h-full" />
         </div>
         {[
           { top: 40, left: 20 },
