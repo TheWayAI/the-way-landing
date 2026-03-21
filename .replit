@@ -47,3 +47,8 @@ waitForPort = 5000
 
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[userenv]
+
+[userenv.shared]
+ASCENDANCE_INTAKE_URL = "https://vsnrytwrascnd33.replit.app/api/intake/the-way"
