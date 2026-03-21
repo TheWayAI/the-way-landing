@@ -262,6 +262,137 @@ function MonoLabel({ children, color }: { children: React.ReactNode; color?: str
   )
 }
 
+/* ─── Waitlist Form ─── */
+function WaitlistForm() {
+  const [firstName, setFirstName] = useState("")
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMsg, setErrorMsg] = useState("")
+
+  const inputStyle = {
+    width: "100%",
+    backgroundColor: "transparent",
+    border: `1px solid ${DARK_20}`,
+    padding: "14px 16px",
+    fontSize: "0.95rem",
+    fontFamily: "var(--font-body), Georgia, serif",
+    color: DARK,
+    outline: "none",
+    boxSizing: "border-box" as const,
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!email) return
+    setStatus("loading")
+    setErrorMsg("")
+    try {
+      const res = await fetch("/api/asc-intake", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email,
+          firstName: firstName.trim() || undefined,
+          message: "Waitlist request from The Way landing page",
+          source: "the-way-site",
+          formName: "waitlist",
+          pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
+        }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data?.error || "Something went wrong")
+      }
+      setStatus("success")
+    } catch (err: unknown) {
+      setStatus("error")
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div style={{ maxWidth: "360px", margin: "0 auto", textAlign: "center", padding: "28px 0" }}>
+        <MapDot color={RED} size={8} />
+        <p
+          style={{
+            fontFamily: "var(--font-serif), Georgia, serif",
+            fontSize: "1.2rem",
+            color: DARK,
+            marginTop: "20px",
+            marginBottom: "10px",
+            lineHeight: 1.4,
+          }}
+        >
+          You&apos;re on the map.
+        </p>
+        <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "0.9rem", color: DARK_50, lineHeight: 1.6 }}>
+          We&apos;ll be in touch as we open the first cohort.
+        </p>
+      </div>
+    )
+  }
+
+  return (
+    <form
+      style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "360px", margin: "0 auto" }}
+      onSubmit={handleSubmit}
+    >
+      <input
+        type="text"
+        placeholder="First name"
+        value={firstName}
+        onChange={e => setFirstName(e.target.value)}
+        style={inputStyle}
+        onFocus={e => (e.target.style.borderColor = DARK_50)}
+        onBlur={e => (e.target.style.borderColor = DARK_20)}
+      />
+      <input
+        type="email"
+        placeholder="Email address"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        required
+        style={inputStyle}
+        onFocus={e => (e.target.style.borderColor = DARK_50)}
+        onBlur={e => (e.target.style.borderColor = DARK_20)}
+      />
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        style={{
+          width: "100%",
+          backgroundColor: status === "loading" ? DARK_50 : DARK,
+          color: LIGHT,
+          padding: "14px 24px",
+          fontFamily: "var(--font-mono), monospace",
+          fontSize: "10px",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          border: "none",
+          cursor: status === "loading" ? "not-allowed" : "pointer",
+          transition: "background-color 0.2s",
+        }}
+      >
+        {status === "loading" ? "Sending…" : "Request Early Access"}
+      </button>
+      {status === "error" && (
+        <p
+          style={{
+            fontFamily: "var(--font-mono), monospace",
+            fontSize: "10px",
+            color: RED,
+            letterSpacing: "0.08em",
+            marginTop: "4px",
+          }}
+        >
+          {errorMsg}
+        </p>
+      )}
+    </form>
+  )
+}
+
 /* ─── Main export ─── */
 export function NewLanding() {
   const mainRef = useReveal()
@@ -1023,48 +1154,7 @@ export function NewLanding() {
               We are building with a small group of believers first.
             </p>
 
-            <form
-              style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "360px", margin: "0 auto" }}
-              onSubmit={(e) => {
-                e.preventDefault()
-                window.open("https://theway.masterymade.com/", "_blank")
-              }}
-            >
-              <input
-                type="email"
-                placeholder="Your email address"
-                style={{
-                  width: "100%",
-                  backgroundColor: "transparent",
-                  border: `1px solid ${DARK_20}`,
-                  padding: "14px 16px",
-                  fontSize: "0.95rem",
-                  fontFamily: "var(--font-body), Georgia, serif",
-                  color: DARK,
-                  outline: "none",
-                  boxSizing: "border-box",
-                }}
-                onFocus={e => (e.target.style.borderColor = DARK_50)}
-                onBlur={e => (e.target.style.borderColor = DARK_20)}
-              />
-              <button
-                type="submit"
-                style={{
-                  width: "100%",
-                  backgroundColor: DARK,
-                  color: LIGHT,
-                  padding: "14px 24px",
-                  fontFamily: "var(--font-mono), monospace",
-                  fontSize: "10px",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                Request Access
-              </button>
-            </form>
+            <WaitlistForm />
           </div>
         </div>
       </section>
