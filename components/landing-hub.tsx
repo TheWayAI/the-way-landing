@@ -415,27 +415,6 @@ export function LandingHub() {
             <CompassRose size={420} color={DARK} className="hub-mobile-target" />
           </div>
 
-          <div
-            style={{
-              position: "relative",
-              marginBottom: "clamp(14px, 2vh, 20px)",
-              animation: "revealRise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.05s both",
-              textAlign: "center",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "10px",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: DARK_50,
-              }}
-            >
-              Frontier technology for the Body of Christ
-            </span>
-          </div>
-
           <h1
             style={{
               position: "relative",
@@ -451,7 +430,7 @@ export function LandingHub() {
               maxWidth: "980px",
             }}
           >
-            An AI lab for<br />
+            The AI lab for<br />
             the Body of Christ.
           </h1>
 
