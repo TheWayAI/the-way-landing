@@ -702,24 +702,11 @@ export function ResearchArticle({ publication, content }: { publication: Publica
                 fontWeight: 300,
                 lineHeight: 1.2,
                 letterSpacing: "-0.015em",
-                marginBottom: "20px",
+                marginBottom: "40px",
               }}
             >
-              The next publication <em>is being written.</em>
+              Follow <em>The Way.</em>
             </h3>
-
-            <p
-              style={{
-                fontFamily: "var(--font-body), Georgia, serif",
-                fontSize: "1.02rem",
-                lineHeight: 1.75,
-                color: WHITE_65,
-                maxWidth: "460px",
-                margin: "0 auto 40px",
-              }}
-            >
-              Subscribe to receive each publication the morning it goes live.
-            </p>
 
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "28px", alignItems: "center" }}>
               <Link

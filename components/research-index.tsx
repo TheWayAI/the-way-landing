@@ -409,20 +409,8 @@ export function ResearchIndex() {
                     marginBottom: "10px",
                   }}
                 >
-                  In Preparation
+                  In Development
                 </span>
-                <p
-                  style={{
-                    fontFamily: "var(--font-serif), Georgia, serif",
-                    fontSize: "1.2rem",
-                    fontStyle: "italic",
-                    color: DARK_50,
-                    lineHeight: 1.5,
-                    maxWidth: "520px",
-                  }}
-                >
-                  Cross-virtue replication of the Christological gap, with mechanism work on the activation level. Subscribe to receive it the morning it publishes.
-                </p>
               </div>
             </div>
           </div>

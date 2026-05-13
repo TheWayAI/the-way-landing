@@ -283,7 +283,7 @@ export const articleContent: Record<string, ArticleContent> = {
     ],
     bio: (
       <>
-        Will Preble is a co-founder of The Way and the founder of Ascendance, an innovation ecosystem aligning emerging technology with human potential. The Way is building AI infrastructure for the future of the Body of Christ. If the work in this essay resonates with you, as a researcher, funder, pastor, or partner, reach out at <a href="mailto:will@ascendance.one">will@ascendance.one</a>.
+        Will Preble is a co-founder of The Way and the founder of <a href="https://ascendance.one/" target="_blank" rel="noopener noreferrer">Ascendance</a>, an innovation ecosystem aligning emerging technology with human potential. The Way is building AI infrastructure for the future of the Body of Christ. If the work in this essay resonates with you, as a researcher, funder, pastor, or partner, reach out at <a href="mailto:will@ascendance.one">will@ascendance.one</a>.
       </>
     ),
     signoff: "PER ASPERA, AD ASTRA.",

@@ -290,8 +290,7 @@ export function LandingHub() {
         style={{
           minHeight: "100dvh",
           width: "100%",
-          background:
-            "radial-gradient(circle at 12% 8%, rgba(74,124,191,0.16), transparent 30%), radial-gradient(circle at 88% 14%, rgba(214,48,48,0.1), transparent 24%), linear-gradient(180deg, #f9f6ef 0%, #eee7d9 58%, #1c1710 58%, #1c1710 100%)",
+          backgroundColor: LIGHT,
           color: DARK,
           position: "relative",
           overflow: "hidden",
@@ -308,7 +307,7 @@ export function LandingHub() {
             transform: "translate(-50%, -50%)",
             width: "min(1100px, 95vw)",
             height: "min(1100px, 95vw)",
-            opacity: 0.075,
+            opacity: 0.048,
             pointerEvents: "none",
             zIndex: 0,
           }}
@@ -333,8 +332,8 @@ export function LandingHub() {
           style={{
             position: "relative",
             zIndex: 3,
-            paddingTop: "calc(clamp(18px, 3vh, 30px) + env(safe-area-inset-top, 0px))",
-            paddingBottom: "clamp(16px, 2.4vh, 26px)",
+            paddingTop: "clamp(20px, 3vh, 32px)",
+            paddingBottom: "clamp(20px, 3vh, 32px)",
             ...safe.gutter,
             display: "flex",
             alignItems: "center",
@@ -387,38 +386,24 @@ export function LandingHub() {
           style={{
             position: "relative",
             zIndex: 3,
-            minHeight: "calc(100dvh - 86px - env(safe-area-inset-top, 0px))",
+            flex: "1 1 auto",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            paddingTop: "clamp(30px, 8vh, 86px)",
-            paddingBottom: "clamp(52px, 10vh, 96px)",
+            paddingTop: "clamp(8px, 2vh, 24px)",
+            paddingBottom: "clamp(8px, 2vh, 24px)",
             ...safe.gutter,
             width: "100%",
-            maxWidth: "1180px",
+            maxWidth: "1280px",
             margin: "0 auto",
             boxSizing: "border-box",
           }}
         >
           <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              inset: "clamp(8px, 2vw, 24px)",
-              border: `1px solid ${DARK_10}`,
-              borderRadius: "22px",
-              background:
-                "linear-gradient(145deg, rgba(255,255,255,0.52), rgba(255,255,255,0.18)), radial-gradient(circle at 50% 20%, rgba(74,124,191,0.1), transparent 46%)",
-              boxShadow: "0 24px 90px rgba(28,23,16,0.11), inset 0 1px 0 rgba(255,255,255,0.75)",
-              pointerEvents: "none",
-            }}
-          />
-
-          <div
             style={{
               position: "relative",
-              marginBottom: "clamp(18px, 3vh, 26px)",
+              marginBottom: "clamp(14px, 2vh, 20px)",
               animation: "revealRise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.05s both",
               textAlign: "center",
             }}
@@ -432,7 +417,7 @@ export function LandingHub() {
                 color: DARK_50,
               }}
             >
-              The Way
+              Frontier technology for the Church
             </span>
           </div>
 
@@ -440,15 +425,15 @@ export function LandingHub() {
             style={{
               position: "relative",
               fontFamily: "var(--font-serif), Georgia, serif",
-              fontSize: "clamp(3.5rem, 16vw, 7.2rem)",
+              fontSize: "clamp(2.55rem, 7vw, 5.8rem)",
               fontWeight: 300,
-              lineHeight: 0.88,
-              letterSpacing: "-0.045em",
+              lineHeight: 0.96,
+              letterSpacing: "-0.035em",
               color: DARK,
               textAlign: "center",
-              marginBottom: "clamp(24px, 4vh, 38px)",
+              marginBottom: "clamp(16px, 2.4vh, 24px)",
               animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s both",
-              maxWidth: "960px",
+              maxWidth: "980px",
             }}
           >
             The identity layer<br />
@@ -459,127 +444,18 @@ export function LandingHub() {
             style={{
               position: "relative",
               fontFamily: "var(--font-body), Georgia, serif",
-              fontSize: "clamp(1.08rem, 2.6vw, 1.35rem)",
-              lineHeight: 1.55,
+              fontSize: "clamp(1rem, 1.65vw, 1.16rem)",
+              lineHeight: 1.65,
               color: DARK_65,
               textAlign: "center",
-              maxWidth: "660px",
-              marginBottom: "clamp(18px, 3vh, 26px)",
+              maxWidth: "650px",
+              margin: "0 auto clamp(24px, 4vh, 44px)",
               animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s both",
             }}
           >
-            The Way helps Christians know who they are in Christ, build the habits of a new self, and carry that identity into work, community, and calling.
-          </p>
-
-          <p
-            className="hub-hero-support"
-            style={{
-              position: "relative",
-              fontFamily: "var(--font-body), Georgia, serif",
-              fontSize: "clamp(0.98rem, 1.7vw, 1.1rem)",
-              lineHeight: 1.65,
-              color: DARK_50,
-              textAlign: "center",
-              maxWidth: "600px",
-              marginBottom: "clamp(30px, 5vh, 54px)",
-              animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.22s both",
-            }}
-          >
+            The Way helps Christians know who they are in Christ, build the habits of a new self, and carry that identity into work, community, and calling.<br />
             We are building at the edge of AI and discipleship, but the center is simple: formation starts with identity.
           </p>
-
-          <Link
-            href="#paths"
-            className="hub-scroll-link"
-            style={{
-              position: "relative",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "12px",
-              minHeight: 48,
-              padding: "0 18px",
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "10px",
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: DARK,
-              textDecoration: "none",
-              border: `1px solid ${DARK_20}`,
-              borderRadius: "999px",
-              background: "rgba(247,245,240,0.58)",
-              boxShadow: "0 12px 36px rgba(28,23,16,0.08)",
-              animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.26s both",
-            }}
-          >
-            See the work
-            <span aria-hidden style={{ color: RED }}>v</span>
-          </Link>
-        </section>
-
-        <section
-          id="paths"
-          className="hub-paths-section"
-          style={{
-            position: "relative",
-            zIndex: 3,
-            width: "100%",
-            color: LIGHT,
-            paddingTop: "clamp(58px, 11vh, 112px)",
-            paddingBottom: "clamp(42px, 8vh, 86px)",
-            ...safe.gutter,
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "1100px",
-              margin: "0 auto clamp(24px, 5vh, 44px)",
-              display: "grid",
-              gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)",
-              gap: "clamp(20px, 5vw, 72px)",
-              alignItems: "end",
-            }}
-            className="hub-paths-header"
-          >
-            <div>
-              <span
-                style={{
-                  display: "block",
-                  marginBottom: "14px",
-                  fontFamily: "var(--font-mono), monospace",
-                  fontSize: "10px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  color: "rgba(247,245,240,0.58)",
-                }}
-              >
-                The work
-              </span>
-              <h2
-                style={{
-                  fontFamily: "var(--font-serif), Georgia, serif",
-                  fontSize: "clamp(2.1rem, 6vw, 4rem)",
-                  fontWeight: 300,
-                  lineHeight: 0.98,
-                  letterSpacing: "-0.025em",
-                }}
-              >
-                Vision, product,<br />
-                and research.
-              </h2>
-            </div>
-            <p
-              style={{
-                fontFamily: "var(--font-body), Georgia, serif",
-                fontSize: "clamp(1rem, 2vw, 1.16rem)",
-                lineHeight: 1.65,
-                color: "rgba(247,245,240,0.68)",
-                maxWidth: "520px",
-              }}
-            >
-              The homepage tells you what The Way is. These are the places to go deeper when you are ready.
-            </p>
-          </div>
 
           <div className="hub-grid">
             <PathCard
