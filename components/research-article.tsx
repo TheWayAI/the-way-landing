@@ -307,8 +307,6 @@ export function ResearchArticle({ publication, content }: { publication: Publica
               >
                 <span>{publication.dateLabel}</span>
                 <span style={{ color: DARK_30 }}>·</span>
-                <span>{publication.readMinutes} min read</span>
-                <span style={{ color: DARK_30 }}>·</span>
                 <span>The Way</span>
               </div>
             </div>

@@ -310,8 +310,6 @@ export function ResearchIndex() {
                       }}
                     >
                       <span>{pub.authors.join(" · ")}</span>
-                      <span style={{ width: "3px", height: "3px", borderRadius: "50%", backgroundColor: DARK_30 }} />
-                      <span>{pub.readMinutes} min read</span>
                     </div>
                   </div>
 
