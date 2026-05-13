@@ -92,6 +92,58 @@
   animation: pulse-dot 2.6s ease-in-out infinite;
 }
 
+@keyframes revealRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.hub-scroll-link {
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.hub-scroll-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(28, 23, 16, 0.38);
+  background: rgba(247,245,240,0.78);
+}
+.hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 14px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 18px;
+  overflow: visible;
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.24),
+    0 2px 0 rgba(255, 255, 255, 0.06);
+}
+.hub-grid > * {
+  min-height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(247,245,240,0.22);
+}
+@media (min-width: 768px) {
+  .hub-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .hub-grid > * {
+    min-height: 300px;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f7f5f0; }
@@ -104,25 +156,48 @@
 }
 
 @media (max-width: 767px) {
+  .hub-hero {
+    align-items: flex-start !important;
+    text-align: left;
+  }
+  .hub-hero h1,
+  .hub-hero p {
+    text-align: left !important;
+  }
+  .hub-hero h1 {
+    max-width: 9.4ch !important;
+  }
+  .hub-hero p {
+    max-width: 31ch !important;
+  }
+  .hub-hero-support {
+    max-width: 30ch !important;
+  }
+  .hub-paths-header {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  .hub-paths-section {
+    margin-top: -1px;
+  }
   .hub-grid {
-    gap: 10px;
+    gap: 12px;
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important;
     overflow: visible !important;
-    border-radius: 0 !important;
+    border-radius: 16px !important;
   }
   .hub-grid > * {
-    border-radius: 12px;
-    border: 1px solid rgba(28, 23, 16, 0.12) !important;
+    border-radius: 16px;
+    border: 1px solid rgba(247, 245, 240, 0.22) !important;
     box-shadow:
-      0 10px 36px rgba(28, 23, 16, 0.08),
+      0 18px 52px rgba(0, 0, 0, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.55);
-    min-height: 196px;
+    min-height: 202px;
     overflow: hidden;
   }
   .path-card {
-    padding: clamp(22px, 5vw, 40px) clamp(16px, 4.5vw, 28px) !important;
+    padding: clamp(24px, 6vw, 40px) clamp(18px, 5vw, 28px) !important;
   }
   .path-card-decor {
     transform: translate(-50%, -50%) scale(0.78) !important;

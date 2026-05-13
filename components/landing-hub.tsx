@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ComingSoonModal } from "@/components/coming-soon-modal"
@@ -126,9 +126,13 @@ function PathCard({ marker, code, title, tagline, action, accent, decoration, hr
         justifyContent: "space-between",
         cursor: "pointer",
         overflow: "hidden",
-        background: hovered ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.28)",
-        transition: "background 0.4s ease, box-shadow 0.4s ease",
-        boxShadow: hovered ? "inset 0 1px 0 rgba(255,255,255,0.75)" : "inset 0 1px 0 rgba(255,255,255,0.35)",
+        background: hovered
+          ? "linear-gradient(150deg, rgba(255,255,255,0.96), rgba(240,232,216,0.94))"
+          : "linear-gradient(150deg, rgba(253,252,250,0.91), rgba(232,222,204,0.86))",
+        transition: "background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease",
+        boxShadow: hovered
+          ? "0 22px 70px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.85)"
+          : "0 12px 38px rgba(0,0,0,0.16), inset 0 1px 0 rgba(255,255,255,0.6)",
         textDecoration: "none",
         color: "inherit",
         outline: "none",
@@ -143,7 +147,7 @@ function PathCard({ marker, code, title, tagline, action, accent, decoration, hr
           top: "50%",
           left: "50%",
           transform: `translate(-50%, -50%) scale(${hovered ? 1.05 : 0.95})`,
-          opacity: hovered ? 0.95 : 0.32,
+          opacity: hovered ? 0.9 : 0.22,
           transition: "opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)",
           pointerEvents: "none",
         }}
@@ -278,17 +282,16 @@ function PathCard({ marker, code, title, tagline, action, accent, decoration, hr
 
 export function LandingHub() {
   const [productOpen, setProductOpen] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
   const coords = "36.1627° N · 86.7816° W"
 
   return (
     <>
       <main
-        ref={containerRef}
         style={{
           minHeight: "100dvh",
           width: "100%",
-          backgroundColor: LIGHT,
+          background:
+            "radial-gradient(circle at 12% 8%, rgba(74,124,191,0.16), transparent 30%), radial-gradient(circle at 88% 14%, rgba(214,48,48,0.1), transparent 24%), linear-gradient(180deg, #f9f6ef 0%, #eee7d9 58%, #1c1710 58%, #1c1710 100%)",
           color: DARK,
           position: "relative",
           overflow: "hidden",
@@ -305,7 +308,7 @@ export function LandingHub() {
             transform: "translate(-50%, -50%)",
             width: "min(1100px, 95vw)",
             height: "min(1100px, 95vw)",
-            opacity: 0.042,
+            opacity: 0.075,
             pointerEvents: "none",
             zIndex: 0,
           }}
@@ -330,8 +333,8 @@ export function LandingHub() {
           style={{
             position: "relative",
             zIndex: 3,
-            paddingTop: "clamp(20px, 3vh, 32px)",
-            paddingBottom: "clamp(20px, 3vh, 32px)",
+            paddingTop: "calc(clamp(18px, 3vh, 30px) + env(safe-area-inset-top, 0px))",
+            paddingBottom: "clamp(16px, 2.4vh, 26px)",
             ...safe.gutter,
             display: "flex",
             alignItems: "center",
@@ -380,26 +383,42 @@ export function LandingHub() {
         </header>
 
         <section
+          className="hub-hero"
           style={{
             position: "relative",
             zIndex: 3,
-            flex: "1 1 auto",
+            minHeight: "calc(100dvh - 86px - env(safe-area-inset-top, 0px))",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            paddingTop: "clamp(8px, 2vh, 24px)",
-            paddingBottom: "clamp(8px, 2vh, 24px)",
+            paddingTop: "clamp(30px, 8vh, 86px)",
+            paddingBottom: "clamp(52px, 10vh, 96px)",
             ...safe.gutter,
             width: "100%",
-            maxWidth: "1280px",
+            maxWidth: "1180px",
             margin: "0 auto",
             boxSizing: "border-box",
           }}
         >
           <div
+            aria-hidden
             style={{
-              marginBottom: "clamp(14px, 2vh, 20px)",
+              position: "absolute",
+              inset: "clamp(8px, 2vw, 24px)",
+              border: `1px solid ${DARK_10}`,
+              borderRadius: "22px",
+              background:
+                "linear-gradient(145deg, rgba(255,255,255,0.52), rgba(255,255,255,0.18)), radial-gradient(circle at 50% 20%, rgba(74,124,191,0.1), transparent 46%)",
+              boxShadow: "0 24px 90px rgba(28,23,16,0.11), inset 0 1px 0 rgba(255,255,255,0.75)",
+              pointerEvents: "none",
+            }}
+          />
+
+          <div
+            style={{
+              position: "relative",
+              marginBottom: "clamp(18px, 3vh, 26px)",
               animation: "revealRise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.05s both",
               textAlign: "center",
             }}
@@ -413,42 +432,154 @@ export function LandingHub() {
                 color: DARK_50,
               }}
             >
-              Frontier Technology for the Body of Christ
+              The Way
             </span>
           </div>
 
           <h1
             style={{
+              position: "relative",
               fontFamily: "var(--font-serif), Georgia, serif",
-              fontSize: "clamp(2.2rem, 5.6vw, 4rem)",
+              fontSize: "clamp(3.5rem, 16vw, 7.2rem)",
               fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.018em",
+              lineHeight: 0.88,
+              letterSpacing: "-0.045em",
               color: DARK,
               textAlign: "center",
-              marginBottom: "clamp(14px, 2vh, 22px)",
+              marginBottom: "clamp(24px, 4vh, 38px)",
               animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s both",
-              maxWidth: "880px",
+              maxWidth: "960px",
             }}
           >
-            Choose your <em>way.</em>
+            The identity layer<br />
+            for believers.
           </h1>
 
           <p
             style={{
+              position: "relative",
               fontFamily: "var(--font-body), Georgia, serif",
-              fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
-              fontStyle: "italic",
-              lineHeight: 1.6,
+              fontSize: "clamp(1.08rem, 2.6vw, 1.35rem)",
+              lineHeight: 1.55,
               color: DARK_65,
               textAlign: "center",
-              maxWidth: "520px",
-              marginBottom: "clamp(22px, 4vh, 44px)",
+              maxWidth: "660px",
+              marginBottom: "clamp(18px, 3vh, 26px)",
               animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s both",
             }}
           >
-            Three thresholds. One foundation. The transformation of the Body of Christ in the age of artificial intelligence.
+            The Way helps Christians know who they are in Christ, build the habits of a new self, and carry that identity into work, community, and calling.
           </p>
+
+          <p
+            className="hub-hero-support"
+            style={{
+              position: "relative",
+              fontFamily: "var(--font-body), Georgia, serif",
+              fontSize: "clamp(0.98rem, 1.7vw, 1.1rem)",
+              lineHeight: 1.65,
+              color: DARK_50,
+              textAlign: "center",
+              maxWidth: "600px",
+              marginBottom: "clamp(30px, 5vh, 54px)",
+              animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.22s both",
+            }}
+          >
+            We are building at the edge of AI and discipleship, but the center is simple: formation starts with identity.
+          </p>
+
+          <Link
+            href="#paths"
+            className="hub-scroll-link"
+            style={{
+              position: "relative",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "12px",
+              minHeight: 48,
+              padding: "0 18px",
+              fontFamily: "var(--font-mono), monospace",
+              fontSize: "10px",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: DARK,
+              textDecoration: "none",
+              border: `1px solid ${DARK_20}`,
+              borderRadius: "999px",
+              background: "rgba(247,245,240,0.58)",
+              boxShadow: "0 12px 36px rgba(28,23,16,0.08)",
+              animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.26s both",
+            }}
+          >
+            See the work
+            <span aria-hidden style={{ color: RED }}>v</span>
+          </Link>
+        </section>
+
+        <section
+          id="paths"
+          className="hub-paths-section"
+          style={{
+            position: "relative",
+            zIndex: 3,
+            width: "100%",
+            color: LIGHT,
+            paddingTop: "clamp(58px, 11vh, 112px)",
+            paddingBottom: "clamp(42px, 8vh, 86px)",
+            ...safe.gutter,
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "1100px",
+              margin: "0 auto clamp(24px, 5vh, 44px)",
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)",
+              gap: "clamp(20px, 5vw, 72px)",
+              alignItems: "end",
+            }}
+            className="hub-paths-header"
+          >
+            <div>
+              <span
+                style={{
+                  display: "block",
+                  marginBottom: "14px",
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: "10px",
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  color: "rgba(247,245,240,0.58)",
+                }}
+              >
+                The work
+              </span>
+              <h2
+                style={{
+                  fontFamily: "var(--font-serif), Georgia, serif",
+                  fontSize: "clamp(2.1rem, 6vw, 4rem)",
+                  fontWeight: 300,
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                Vision, product,<br />
+                and research.
+              </h2>
+            </div>
+            <p
+              style={{
+                fontFamily: "var(--font-body), Georgia, serif",
+                fontSize: "clamp(1rem, 2vw, 1.16rem)",
+                lineHeight: 1.65,
+                color: "rgba(247,245,240,0.68)",
+                maxWidth: "520px",
+              }}
+            >
+              The homepage tells you what The Way is. These are the places to go deeper when you are ready.
+            </p>
+          </div>
 
           <div className="hub-grid">
             <PathCard
@@ -456,8 +587,8 @@ export function LandingHub() {
               marker="§ I"
               code="VIS"
               title="Vision"
-              tagline="The thesis. Why identity precedes activity in the age of AI."
-              action="Enter the vision"
+              tagline="The argument for identity before activity."
+              action="Read the thesis"
               accent={BLUE}
               decoration="compass"
               href="/vision"
@@ -467,8 +598,8 @@ export function LandingHub() {
               marker="§ II"
               code="PRD · SOON"
               title="Product"
-              tagline="Wayfinder. The identity layer. In private build for the first cohort."
-              action="View status"
+              tagline="Wayfinder is in private build."
+              action="See status"
               accent={RED}
               decoration="triangle"
               onClick={() => setProductOpen(true)}
@@ -479,8 +610,8 @@ export function LandingHub() {
               marker="§ III"
               code="RES"
               title="Research"
-              tagline="Publications on AI, formation, and the Church."
-              action="Explore research"
+              tagline="Long-form writing from the workbench."
+              action="Open research"
               accent={BLUE}
               decoration="codex"
               href="/research"
@@ -507,49 +638,6 @@ export function LandingHub() {
 
       <ComingSoonModal open={productOpen} onClose={() => setProductOpen(false)} />
 
-      <style jsx>{`
-        .hub-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          width: 100%;
-          max-width: 1100px;
-          gap: 1px;
-          background-color: rgba(28, 23, 16, 0.14);
-          border: 1px solid rgba(28, 23, 16, 0.16);
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow:
-            0 20px 56px rgba(28, 23, 16, 0.1),
-            0 2px 12px rgba(28, 23, 16, 0.05),
-            inset 0 1px 0 rgba(255, 255, 255, 0.65);
-        }
-        .hub-grid > * {
-          background: linear-gradient(165deg, #fdfcfa 0%, #f3efe6 100%);
-          min-height: 220px;
-        }
-        @media (min-width: 768px) {
-          .hub-grid {
-            grid-template-columns: 1fr 1fr 1fr;
-          }
-          .hub-grid > * {
-            min-height: 300px;
-          }
-        }
-      `}</style>
-      <style jsx global>{`
-        @keyframes revealRise {
-          from { opacity: 0; transform: translateY(14px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes rise {
-          from { opacity: 0; transform: translateY(20px) scale(0.98); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-      `}</style>
     </>
   )
 }
