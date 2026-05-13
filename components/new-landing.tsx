@@ -164,10 +164,11 @@ function MonoLabel({ children, color }: { children: React.ReactNode; color?: str
   )
 }
 
-/* ─── Waitlist Form ─── */
-function WaitlistForm() {
+/* ─── Contact Form ─── */
+function ContactForm() {
   const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [errorMsg, setErrorMsg] = useState("")
 
@@ -195,9 +196,9 @@ function WaitlistForm() {
         body: JSON.stringify({
           email,
           firstName: firstName.trim() || undefined,
-          message: "Waitlist request from The Way landing page",
+          message: message.trim() || "Contact request from The Way site",
           source: "the-way-site",
-          formName: "waitlist",
+          formName: "contact",
           pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
         }),
       })
@@ -226,10 +227,10 @@ function WaitlistForm() {
             lineHeight: 1.4,
           }}
         >
-          You&apos;re on the map.
+          Message received.
         </p>
         <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "0.9rem", color: DARK_50, lineHeight: 1.6 }}>
-          We&apos;ll be in touch as we open the first cohort.
+          We&apos;ll be in touch.
         </p>
       </div>
     )
@@ -259,6 +260,20 @@ function WaitlistForm() {
         onFocus={e => (e.target.style.borderColor = DARK_50)}
         onBlur={e => (e.target.style.borderColor = DARK_20)}
       />
+      <textarea
+        placeholder="What are you reaching out about?"
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+        rows={4}
+        style={{
+          ...inputStyle,
+          resize: "vertical",
+          minHeight: "112px",
+          lineHeight: 1.55,
+        }}
+        onFocus={e => (e.target.style.borderColor = DARK_50)}
+        onBlur={e => (e.target.style.borderColor = DARK_20)}
+      />
       <button
         type="submit"
         disabled={status === "loading"}
@@ -277,7 +292,7 @@ function WaitlistForm() {
           transition: "background-color 0.2s",
         }}
       >
-        {status === "loading" ? "Sending…" : "Request Early Access"}
+        {status === "loading" ? "Sending…" : "Contact Us"}
       </button>
       {status === "error" && (
         <p
@@ -426,7 +441,7 @@ export function NewLanding() {
               display: "inline-block",
             }}
           >
-            Request Early Access
+            Contact Us
           </a>
         </div>
 
@@ -1026,8 +1041,7 @@ export function NewLanding() {
                 letterSpacing: "-0.015em",
               }}
             >
-              <em>The new has come.</em><br />
-              Begin the work.
+              Join <em>the work.</em>
             </h2>
 
             <p
@@ -1039,10 +1053,10 @@ export function NewLanding() {
                 marginBottom: "44px",
               }}
             >
-              We are building with a small group of believers first.
+              Contact us about research, partnerships, funding, or building for the future of the Body of Christ.
             </p>
 
-            <WaitlistForm />
+            <ContactForm />
           </div>
         </div>
       </section>
