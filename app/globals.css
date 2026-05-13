@@ -150,6 +150,17 @@
 }
 
 @media (max-width: 767px) {
+  .home-brand {
+    gap: 12px !important;
+  }
+  .home-brand-logo {
+    width: 46px !important;
+    height: 46px !important;
+  }
+  .home-brand-wordmark {
+    font-size: 1rem !important;
+    letter-spacing: 0.26em !important;
+  }
   .hub-hero {
     min-height: calc(100dvh - 92px - env(safe-area-inset-top, 0px)) !important;
     justify-content: center !important;
@@ -232,6 +243,22 @@
   .article-example {
     margin-left: 0 !important;
     border-radius: 4px;
+  }
+  .home-footer {
+    gap: 10px !important;
+  }
+  .home-footer-copy {
+    font-size: 9px !important;
+    letter-spacing: 0.16em !important;
+    white-space: nowrap;
+  }
+  .home-footer .ascendance-footer-mark {
+    gap: 7px !important;
+  }
+  .home-footer .ascendance-footer-mark span {
+    font-size: 8px !important;
+    letter-spacing: 0.16em !important;
+    white-space: nowrap;
   }
 }
 

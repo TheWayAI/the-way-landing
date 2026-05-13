@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-export function AscendanceFooterLink({ theme }: { theme: "onDark" | "onLight" }) {
+export function AscendanceFooterLink({ theme, compact = false }: { theme: "onDark" | "onLight"; compact?: boolean }) {
   const idle = theme === "onDark" ? "rgba(247,245,240,0.65)" : "rgba(28,23,16,0.55)"
   const hover = theme === "onDark" ? "rgba(247,245,240,0.95)" : "#1c1710"
   const logoFilter = theme === "onDark" ? "invert(1)" : "none"
@@ -43,6 +43,7 @@ export function AscendanceFooterLink({ theme }: { theme: "onDark" | "onLight" })
         }}
       />
       <span
+        className={compact ? undefined : "ascendance-company-prefix"}
         style={{
           fontFamily: "var(--font-mono), monospace",
           fontSize: "9px",
@@ -50,7 +51,7 @@ export function AscendanceFooterLink({ theme }: { theme: "onDark" | "onLight" })
           textTransform: "uppercase",
         }}
       >
-        An Ascendance Company
+        {compact ? "Ascendance" : "An Ascendance Company"}
       </span>
     </a>
   )

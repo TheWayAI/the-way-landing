@@ -278,7 +278,7 @@ function PathCard({ marker, code, title, tagline, action, accent, decoration, hr
 
 export function LandingHub() {
   const [productOpen, setProductOpen] = useState(false)
-  const coords = "36.1627° N · 86.7816° W"
+  const coords = "31.7794° N · 35.2398° E"
 
   return (
     <>
@@ -338,20 +338,26 @@ export function LandingHub() {
             gap: "16px",
           }}
         >
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+          <Link
+            href="/"
+            className="home-brand"
+            style={{ display: "flex", alignItems: "center", gap: "clamp(14px, 2vw, 24px)", textDecoration: "none" }}
+          >
             <Image
               src="/thewaylogo.jpeg"
               alt="The Way"
-              width={30}
-              height={30}
+              width={64}
+              height={64}
+              className="home-brand-logo"
               style={{ objectFit: "contain" }}
               priority
             />
             <span
+              className="home-brand-wordmark"
               style={{
                 fontFamily: "var(--font-mono), monospace",
-                fontSize: "11px",
-                letterSpacing: "0.22em",
+                fontSize: "clamp(1.05rem, 2.4vw, 1.55rem)",
+                letterSpacing: "0.34em",
                 textTransform: "uppercase",
                 color: DARK,
                 fontWeight: 500,
@@ -513,6 +519,7 @@ export function LandingHub() {
         </section>
 
         <footer
+          className="home-footer"
           style={{
             position: "relative",
             zIndex: 3,
@@ -521,11 +528,24 @@ export function LandingHub() {
             ...safe.gutter,
             display: "flex",
             alignItems: "center",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
+            gap: "16px",
             borderTop: `1px solid ${DARK_10}`,
           }}
         >
-          <AscendanceFooterLink theme="onLight" />
+          <span
+            className="home-footer-copy"
+            style={{
+              fontFamily: "var(--font-mono), monospace",
+              fontSize: "10px",
+              letterSpacing: "0.22em",
+              color: DARK_50,
+              textTransform: "uppercase",
+            }}
+          >
+            © The Way 2026
+          </span>
+          <AscendanceFooterLink theme="onLight" compact />
         </footer>
       </main>
 
