@@ -426,7 +426,7 @@ export function LandingHub() {
                 color: DARK_50,
               }}
             >
-              Frontier technology for the Church
+              Frontier technology for the Body of Christ
             </span>
           </div>
 
@@ -445,8 +445,8 @@ export function LandingHub() {
               maxWidth: "980px",
             }}
           >
-            The identity layer<br />
-            for believers.
+            An AI lab for<br />
+            the Body of Christ.
           </h1>
 
           <p
@@ -462,7 +462,7 @@ export function LandingHub() {
               animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s both",
             }}
           >
-            The Way helps Christians know who they are in Christ, build the habits of a new self, and carry that identity into work, community, and calling. We are building at the edge of AI and discipleship, but the center is simple: formation starts with identity.
+            The Way builds frontier technology for the Church: AI systems, research, and products shaped by Christ rather than the defaults of the market.
           </p>
 
           <div id="hub-paths" className="hub-grid">
