@@ -137,10 +137,11 @@ export const articleContent: Record<string, ArticleContent> = {
             </p>
 
             <Figure
-              placeholder="[image: the Shoggoth meme goes here]"
+              src="/shoggothmeme.jpg"
+              alt="A Shoggoth meme showing a friendly chatbot mask over a monstrous underlying model"
               caption={
                 <>
-                  [caption for the image above:] The smiley face is the chatbot you talk to. The Shoggoth is what the alignment community privately suspects is underneath.
+                  The smiley face is the chatbot you talk to. The Shoggoth is what the alignment community privately suspects is underneath.
                 </>
               }
             />
