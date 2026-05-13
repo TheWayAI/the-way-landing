@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Cormorant_Garamond, EB_Garamond, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
@@ -20,6 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
   variable: "--font-mono",
 })
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#f7f5f0",
+  maximumScale: 5,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://followtheway.io'),

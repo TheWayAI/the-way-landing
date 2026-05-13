@@ -1,9 +1,12 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { SiteNav } from "@/components/site-nav"
+import { ComingSoonModal } from "@/components/coming-soon-modal"
+import { AscendanceFooterLink } from "@/components/ascendance-footer-link"
+import { safe } from "@/lib/safe-area"
 
 /* ─── Design tokens pulled from the logo ─── */
 const LIGHT = "#f7f5f0"        // off-white, barely warm
@@ -47,10 +50,11 @@ function CompassRose({ size = 120, color = DARK_15, className }: { size?: number
       {/* Tick marks */}
       {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => {
         const rad = (deg * Math.PI) / 180
-        const x1 = 60 + 52 * Math.sin(rad)
-        const y1 = 60 - 52 * Math.cos(rad)
-        const x2 = 60 + 56 * Math.sin(rad)
-        const y2 = 60 - 56 * Math.cos(rad)
+        const round = (v: number) => Number(v.toFixed(4))
+        const x1 = round(60 + 52 * Math.sin(rad))
+        const y1 = round(60 - 52 * Math.cos(rad))
+        const x2 = round(60 + 56 * Math.sin(rad))
+        const y2 = round(60 - 56 * Math.cos(rad))
         return <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="0.5" />
       })}
       {/* Center dot */}
@@ -126,117 +130,6 @@ function SectionRule({ light = false }: { light?: boolean }) {
       <div style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: dotColor, margin: "0 8px" }} />
       <div style={{ flex: 1, height: "1px", backgroundColor: lineColor }} />
     </div>
-  )
-}
-
-/* ─── Nav ─── */
-function Nav() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 48)
-    window.addEventListener("scroll", handler)
-    return () => window.removeEventListener("scroll", handler)
-  }, [])
-
-  return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        width: "100%",
-        zIndex: 50,
-        backgroundColor: scrolled ? "rgba(247,245,240,0.96)" : "transparent",
-        borderBottom: scrolled ? `1px solid ${DARK_10}` : "1px solid transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        transition: "all 0.35s ease",
-      }}
-    >
-      <div style={{ maxWidth: "1040px", margin: "0 auto", padding: "0 28px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "62px" }}>
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-            <Image
-              src="/thewaylogo.jpeg"
-              alt="The Way"
-              width={30}
-              height={30}
-              style={{ objectFit: "contain" }}
-            />
-            <span
-              style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "11px",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: DARK,
-                fontWeight: 500,
-              }}
-            >
-              The Way
-            </span>
-          </Link>
-
-          <a
-            href="#email-signup"
-            className="hidden md:inline-block"
-            style={{
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: "10px",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: DARK_50,
-              textDecoration: "none",
-              borderBottom: `1px solid ${DARK_20}`,
-              paddingBottom: "2px",
-              transition: "color 0.2s, border-color 0.2s",
-            }}
-            onMouseEnter={e => {
-              const el = e.target as HTMLElement
-              el.style.color = DARK
-              el.style.borderBottomColor = DARK_50
-            }}
-            onMouseLeave={e => {
-              const el = e.target as HTMLElement
-              el.style.color = DARK_50
-              el.style.borderBottomColor = DARK_20
-            }}
-          >
-            Request Access
-          </a>
-
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            style={{ color: DARK, background: "none", border: "none", cursor: "pointer" }}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-
-        {isOpen && (
-          <div style={{ padding: "16px 0 20px", borderTop: `1px solid ${DARK_10}` }}>
-            <a
-              href="#email-signup"
-              style={{
-                display: "block",
-                textAlign: "center",
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "10px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: DARK,
-                textDecoration: "none",
-                padding: "12px 0",
-              }}
-              onClick={() => setIsOpen(false)}
-            >
-              Request Access
-            </a>
-          </div>
-        )}
-      </div>
-    </nav>
   )
 }
 
@@ -374,6 +267,7 @@ function WaitlistForm() {
           backgroundColor: status === "loading" ? DARK_50 : DARK,
           color: LIGHT,
           padding: "14px 24px",
+          minHeight: 48,
           fontFamily: "var(--font-mono), monospace",
           fontSize: "10px",
           letterSpacing: "0.25em",
@@ -405,10 +299,12 @@ function WaitlistForm() {
 /* ─── Main export ─── */
 export function NewLanding() {
   const mainRef = useReveal()
+  const [productOpen, setProductOpen] = useState(false)
 
   return (
-    <main ref={mainRef} style={{ minHeight: "100vh" }}>
-      <Nav />
+    <main ref={mainRef} style={{ minHeight: "100dvh" }}>
+      <SiteNav current="vision" onProductClick={() => setProductOpen(true)} />
+      <ComingSoonModal open={productOpen} onClose={() => setProductOpen(false)} />
 
       {/* ══════ HERO — LIGHT ══════ */}
       <section
@@ -421,24 +317,24 @@ export function NewLanding() {
           justifyContent: "center",
           position: "relative",
           overflow: "hidden",
-          paddingTop: "80px",
-          paddingBottom: "60px",
+          paddingTop: "calc(62px + env(safe-area-inset-top, 0px) + clamp(20px, 4vh, 36px))",
+          paddingBottom: "clamp(40px, 8vh, 64px)",
         }}
       >
         {/* Compass rose — top right decorative (larger on desktop) */}
-        <div className="w-[140px] md:w-[240px] h-[140px] md:h-[240px] opacity-40 md:opacity-50" style={{ position: "absolute", top: "60px", right: "40px" }}>
+        <div className="w-[140px] md:w-[240px] h-[140px] md:h-[240px] opacity-40 md:opacity-50" style={{ position: "absolute", top: "calc(52px + env(safe-area-inset-top, 0px))", right: "max(16px, env(safe-area-inset-right, 0px))" }}>
           <CompassRose size={240} color={DARK_20} className="w-full h-full" />
         </div>
         {/* Triangle mark — bottom left (larger on desktop) */}
-        <div className="w-[56px] md:w-[100px] h-[56px] md:h-[100px] opacity-30 md:opacity-40" style={{ position: "absolute", bottom: "48px", left: "40px" }}>
+        <div className="w-[56px] md:w-[100px] h-[56px] md:h-[100px] opacity-30 md:opacity-40" style={{ position: "absolute", bottom: "max(32px, env(safe-area-inset-bottom, 0px))", left: "max(20px, env(safe-area-inset-left, 0px))" }}>
           <TriangleMark size={100} color={DARK_20} className="w-full h-full" />
         </div>
         {/* Coordinate tick marks — corners (bigger on desktop) */}
         {[
-          { top: 72, left: 28 },
-          { top: 72, right: 28 },
-          { bottom: 28, left: 28 },
-          { bottom: 28, right: 28 },
+          { top: "calc(64px + env(safe-area-inset-top, 0px))", left: "calc(14px + env(safe-area-inset-left, 0px))" },
+          { top: "calc(64px + env(safe-area-inset-top, 0px))", right: "calc(14px + env(safe-area-inset-right, 0px))" },
+          { bottom: "calc(14px + env(safe-area-inset-bottom, 0px))", left: "calc(14px + env(safe-area-inset-left, 0px))" },
+          { bottom: "calc(14px + env(safe-area-inset-bottom, 0px))", right: "calc(14px + env(safe-area-inset-right, 0px))" },
         ].map((pos, i) => (
           <div
             key={i}
@@ -454,7 +350,7 @@ export function NewLanding() {
           />
         ))}
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "600px", margin: "0 auto", padding: "0 28px", textAlign: "center" }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "600px", margin: "0 auto", ...safe.gutter, textAlign: "center" }}>
           <div style={{ marginBottom: "44px" }}>
             <Image
               src="/thewaylogo.jpeg"
@@ -538,14 +434,14 @@ export function NewLanding() {
 
       {/* ══════ I — THE TRANSFORMATION — DARK ══════ */}
       <section
-        style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}
+        style={{ backgroundColor: DARK, padding: "clamp(56px, 14vw, 96px) 0 clamp(64px, 14vw, 108px)", position: "relative", overflow: "hidden" }}
       >
         {/* Background radar — tech-themed, more visible on desktop */}
         <div className="w-[280px] md:w-[480px] h-[280px] md:h-[480px] opacity-[0.08] md:opacity-[0.12]" style={{ position: "absolute", top: "50%", right: "-60px", transform: "translateY(-50%)" }}>
           <RadarSweep size={480} color={LIGHT} className="w-full h-full" />
         </div>
 
-        <div style={{ maxWidth: "680px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "680px", margin: "0 auto", ...safe.gutter, position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "64px" }}>
             <MonoLabel color={WHITE_65}>§ I — The Transformation</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
@@ -689,11 +585,11 @@ export function NewLanding() {
       </section>
 
       {/* ══════ II — THE CRISIS — LIGHT ══════ */}
-      <section style={{ backgroundColor: LIGHT, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
+      <section style={{ backgroundColor: LIGHT, padding: "clamp(56px, 14vw, 96px) 0 clamp(64px, 14vw, 108px)", position: "relative", overflow: "hidden" }}>
         <div className="w-[72px] md:w-[120px] h-[72px] md:h-[120px] opacity-[0.06] md:opacity-[0.1]" style={{ position: "absolute", top: "40px", left: "40px" }}>
           <LatinCross size={120} color={DARK_20} className="w-full h-full" />
         </div>
-        <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px" }}>
+        <div style={{ maxWidth: "620px", margin: "0 auto", ...safe.gutter }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
             <MonoLabel color={DARK_50}>§ II — The Crisis</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
@@ -760,7 +656,7 @@ export function NewLanding() {
       </section>
 
       {/* ══════ III — THE FOUNDATION — DARK ══════ */}
-      <section style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
+      <section style={{ backgroundColor: DARK, padding: "clamp(56px, 14vw, 96px) 0 clamp(64px, 14vw, 108px)", position: "relative", overflow: "hidden" }}>
         {/* Radar — tech-themed corner accent */}
         <div className="w-[160px] md:w-[280px] h-[160px] md:h-[280px] opacity-[0.07] md:opacity-[0.11]" style={{ position: "absolute", top: "40px", right: "40px" }}>
           <RadarSweep size={280} color={WHITE_25} className="w-full h-full" />
@@ -773,7 +669,7 @@ export function NewLanding() {
           <LatinCross size={280} color={WHITE_35} className="w-full h-full" />
         </div>
 
-        <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "620px", margin: "0 auto", ...safe.gutter, position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
             <MonoLabel color={WHITE_65}>§ III — The Foundation</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
@@ -799,7 +695,9 @@ export function NewLanding() {
             style={{
               textAlign: "center",
               marginBottom: "48px",
-              padding: "32px 28px",
+              paddingTop: "clamp(24px, 5vw, 32px)",
+              paddingBottom: "clamp(24px, 5vw, 32px)",
+              ...safe.gutter,
               border: `1px solid ${WHITE_35}`,
               borderTop: `3px solid ${BLUE}`,
             }}
@@ -906,7 +804,7 @@ export function NewLanding() {
       </section>
 
       {/* ══════ IV — WAYFINDER — LIGHT ══════ */}
-      <section style={{ backgroundColor: LIGHT, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
+      <section style={{ backgroundColor: LIGHT, padding: "clamp(56px, 14vw, 96px) 0 clamp(64px, 14vw, 108px)", position: "relative", overflow: "hidden" }}>
         {/* Large compass behind the section — more visible on desktop */}
         <div
           className="opacity-[0.045] md:opacity-[0.08]"
@@ -923,7 +821,7 @@ export function NewLanding() {
           <CompassRose size={520} color={DARK} className="w-full h-full" />
         </div>
 
-        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto", ...safe.gutter, position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "64px" }}>
             {/* The red dot — the logo's living element, now pulsing */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "20px" }}>
@@ -1034,13 +932,13 @@ export function NewLanding() {
       </section>
 
       {/* ══════ V — THE VISION — DARK ══════ */}
-      <section style={{ backgroundColor: DARK, padding: "96px 0 108px", position: "relative", overflow: "hidden" }}>
+      <section style={{ backgroundColor: DARK, padding: "clamp(56px, 14vw, 96px) 0 clamp(64px, 14vw, 108px)", position: "relative", overflow: "hidden" }}>
         {/* Radar — tech-themed, larger on desktop */}
         <div className="w-[180px] md:w-[320px] h-[180px] md:h-[320px] opacity-[0.07] md:opacity-[0.12]" style={{ position: "absolute", bottom: "30px", right: "30px" }}>
           <RadarSweep size={320} color={WHITE_25} className="w-full h-full" />
         </div>
 
-        <div style={{ maxWidth: "620px", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "620px", margin: "0 auto", ...safe.gutter, position: "relative", zIndex: 1 }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: "56px" }}>
             <MonoLabel color={WHITE_65}>§ V — The Vision</MonoLabel>
             <div style={{ marginTop: "24px", marginBottom: "28px" }}>
@@ -1082,7 +980,7 @@ export function NewLanding() {
       </section>
 
       {/* ══════ FINAL CTA — LIGHT ══════ */}
-      <section id="email-signup" style={{ backgroundColor: LIGHT, padding: "112px 0 128px", position: "relative", overflow: "hidden", scrollMarginTop: "84px" }}>
+      <section id="email-signup" style={{ backgroundColor: LIGHT, padding: "clamp(72px, 18vw, 112px) 0 clamp(80px, 18vw, 128px)", position: "relative", overflow: "hidden", scrollMarginTop: "calc(84px + env(safe-area-inset-top, 0px))" }}>
         <div className="w-[90px] md:w-[160px] h-[90px] md:h-[160px] opacity-[0.15] md:opacity-25" style={{ position: "absolute", top: "50px", left: "50px" }}>
           <CompassRose size={160} color={DARK_20} className="w-full h-full" />
         </div>
@@ -1090,10 +988,10 @@ export function NewLanding() {
           <LatinCross size={120} color={DARK_20} className="w-full h-full" />
         </div>
         {[
-          { top: 40, left: 20 },
-          { top: 40, right: 20 },
-          { bottom: 40, left: 20 },
-          { bottom: 40, right: 20 },
+          { top: "calc(36px + env(safe-area-inset-top, 0px))", left: "calc(12px + env(safe-area-inset-left, 0px))" },
+          { top: "calc(36px + env(safe-area-inset-top, 0px))", right: "calc(12px + env(safe-area-inset-right, 0px))" },
+          { bottom: "calc(28px + env(safe-area-inset-bottom, 0px))", left: "calc(12px + env(safe-area-inset-left, 0px))" },
+          { bottom: "calc(28px + env(safe-area-inset-bottom, 0px))", right: "calc(12px + env(safe-area-inset-right, 0px))" },
         ].map((pos, i) => (
           <div
             key={i}
@@ -1109,7 +1007,7 @@ export function NewLanding() {
           />
         ))}
 
-        <div style={{ maxWidth: "460px", margin: "0 auto", padding: "0 28px", textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "460px", margin: "0 auto", ...safe.gutter, textAlign: "center", position: "relative", zIndex: 1 }}>
           <div className="reveal">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "36px" }}>
               <div style={{ width: "24px", height: "1px", backgroundColor: DARK_20 }} />
@@ -1153,7 +1051,9 @@ export function NewLanding() {
       <footer
         style={{
           backgroundColor: DARK,
-          padding: "28px 28px",
+          paddingTop: "clamp(16px, 3vh, 28px)",
+          paddingBottom: "calc(clamp(16px, 3vh, 28px) + env(safe-area-inset-bottom, 0px))",
+          ...safe.gutter,
           borderTop: `1px solid ${WHITE_35}`,
           display: "flex",
           alignItems: "center",
@@ -1182,46 +1082,8 @@ export function NewLanding() {
             The Way · 2026
           </span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <a
-            href="https://ascendance.one"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              textDecoration: "none",
-              color: WHITE_65,
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.color = WHITE_90
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.color = WHITE_65
-            }}
-          >
-            <Image
-              src="/Ascendance White Icon.png"
-              alt="Ascendance"
-              width={18}
-              height={18}
-              style={{ objectFit: "contain" }}
-            />
-            <span
-              style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "9px",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-              }}
-            >
-              An Ascendance Company
-            </span>
-          </a>
+        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "12px" }}>
+          <AscendanceFooterLink theme="onDark" />
           <MapDot color={RED} size={5} />
         </div>
       </footer>
