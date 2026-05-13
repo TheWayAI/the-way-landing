@@ -430,7 +430,7 @@ export function LandingHub() {
               maxWidth: "980px",
             }}
           >
-            The AI lab for<br />
+            Frontier technology for<br />
             the Body of Christ.
           </h1>
 

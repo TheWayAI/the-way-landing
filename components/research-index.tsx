@@ -169,27 +169,12 @@ export function ResearchIndex() {
                 lineHeight: 1.05,
                 letterSpacing: "-0.02em",
                 color: DARK,
-                marginBottom: "26px",
+                marginBottom: 0,
               }}
             >
               Research at<br />
               the <em>frontier.</em>
             </h1>
-
-            <p
-              className="reveal"
-              style={{
-                fontFamily: "var(--font-body), Georgia, serif",
-                fontSize: "clamp(1rem, 1.6vw, 1.1rem)",
-                fontStyle: "italic",
-                lineHeight: 1.75,
-                color: DARK_65,
-                maxWidth: "560px",
-                margin: "0 auto",
-              }}
-            >
-              Publications on artificial intelligence, formation, and the transformation of the Body of Christ. Written as we build.
-            </p>
           </div>
         </section>
 
@@ -447,10 +432,6 @@ export function ResearchIndex() {
               <div style={{ width: "24px", height: "1px", backgroundColor: WHITE_35 }} />
             </div>
 
-            <div className="reveal">
-              <MonoLabel color={WHITE_65}>Subscribe</MonoLabel>
-            </div>
-
             <h2
               className="reveal"
               style={{
@@ -463,7 +444,7 @@ export function ResearchIndex() {
                 margin: "22px 0 18px",
               }}
             >
-              Receive new research <em>the morning it publishes.</em>
+              Follow <em>The Way.</em>
             </h2>
 
             <p
@@ -477,12 +458,12 @@ export function ResearchIndex() {
                 margin: "0 auto 36px",
               }}
             >
-              No marketing. No newsletter cadence. Only the research, as it is finished.
+              We are open to research partnerships and collaborative work with others building for the future of the Body of Christ.
             </p>
 
             <Link
               className="reveal"
-              href="/vision#email-signup"
+              href="mailto:will@ascendance.one"
               style={{
                 fontFamily: "var(--font-mono), monospace",
                 fontSize: "11px",
@@ -497,7 +478,7 @@ export function ResearchIndex() {
                 transition: "border-color 0.2s",
               }}
             >
-              Request Early Access →
+              Contact →
             </Link>
           </div>
         </section>
