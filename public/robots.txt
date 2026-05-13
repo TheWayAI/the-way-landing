@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://followtheway.io/sitemap.xml

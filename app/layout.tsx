@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   title: "The Way — Frontier Technology for the Body of Christ",
   description:
     "Pushing the boundaries of emerging technology to evangelize, disciple, and unite the Body of Christ.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: '/thewaylogo.jpeg',
     shortcut: '/thewaylogo.jpeg',
