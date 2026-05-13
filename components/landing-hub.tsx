@@ -126,13 +126,9 @@ function PathCard({ marker, code, title, tagline, action, accent, decoration, hr
         justifyContent: "space-between",
         cursor: "pointer",
         overflow: "hidden",
-        background: hovered
-          ? "linear-gradient(150deg, rgba(255,255,255,0.96), rgba(240,232,216,0.94))"
-          : "linear-gradient(150deg, rgba(253,252,250,0.91), rgba(232,222,204,0.86))",
-        transition: "background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease",
-        boxShadow: hovered
-          ? "0 22px 70px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.85)"
-          : "0 12px 38px rgba(0,0,0,0.16), inset 0 1px 0 rgba(255,255,255,0.6)",
+        background: hovered ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.28)",
+        transition: "background 0.4s ease, box-shadow 0.4s ease",
+        boxShadow: hovered ? "inset 0 1px 0 rgba(255,255,255,0.75)" : "inset 0 1px 0 rgba(255,255,255,0.35)",
         textDecoration: "none",
         color: "inherit",
         outline: "none",
@@ -147,7 +143,7 @@ function PathCard({ marker, code, title, tagline, action, accent, decoration, hr
           top: "50%",
           left: "50%",
           transform: `translate(-50%, -50%) scale(${hovered ? 1.05 : 0.95})`,
-          opacity: hovered ? 0.9 : 0.22,
+          opacity: hovered ? 0.95 : 0.32,
           transition: "opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)",
           pointerEvents: "none",
         }}
@@ -300,6 +296,7 @@ export function LandingHub() {
       >
         <div
           aria-hidden
+          className="hub-bg-compass"
           style={{
             position: "absolute",
             top: "50%",
@@ -401,6 +398,18 @@ export function LandingHub() {
           }}
         >
           <div
+            aria-hidden
+            className="hub-mobile-plate"
+            style={{
+              position: "absolute",
+              inset: 0,
+              pointerEvents: "none",
+            }}
+          >
+            <CompassRose size={420} color={DARK} className="hub-mobile-target" />
+          </div>
+
+          <div
             style={{
               position: "relative",
               marginBottom: "clamp(14px, 2vh, 20px)",
@@ -453,11 +462,10 @@ export function LandingHub() {
               animation: "revealRise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s both",
             }}
           >
-            The Way helps Christians know who they are in Christ, build the habits of a new self, and carry that identity into work, community, and calling.<br />
-            We are building at the edge of AI and discipleship, but the center is simple: formation starts with identity.
+            The Way helps Christians know who they are in Christ, build the habits of a new self, and carry that identity into work, community, and calling. We are building at the edge of AI and discipleship, but the center is simple: formation starts with identity.
           </p>
 
-          <div className="hub-grid">
+          <div id="hub-paths" className="hub-grid">
             <PathCard
               index={0}
               marker="§ I"
@@ -493,6 +501,15 @@ export function LandingHub() {
               href="/research"
             />
           </div>
+
+          <a
+            href="#hub-paths"
+            className="hub-mobile-scroll"
+            aria-label="Scroll to the paths"
+          >
+            <span>Scroll</span>
+            <span aria-hidden>↓</span>
+          </a>
         </section>
 
         <footer
