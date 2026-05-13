@@ -164,19 +164,10 @@ function MonoLabel({ children, color }: { children: React.ReactNode; color?: str
   )
 }
 
-/* ─── Waitlist / CTA Form ─── */
-const INTEREST_OPTIONS = [
-  { value: "waitlist",   label: "Join the waitlist" },
-  { value: "cohort",     label: "Apply for a cohort" },
-  { value: "coaching",   label: "Explore coaching" },
-  { value: "community",  label: "Find community" },
-]
-
+/* ─── Waitlist Form ─── */
 function ContactForm() {
   const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
-  const [interestType, setInterestType] = useState("waitlist")
-  const [currentChallenge, setCurrentChallenge] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [errorMsg, setErrorMsg] = useState("")
 
@@ -198,22 +189,14 @@ function ContactForm() {
     setStatus("loading")
     setErrorMsg("")
 
-    const formName =
-      interestType === "cohort"    ? "cohort-application" :
-      interestType === "waitlist"  ? "the-way-waitlist"   :
-      "launch-interest"
-
     const payload = {
       email: email.trim(),
       firstName: firstName.trim() || undefined,
-      message: currentChallenge.trim() || `${INTEREST_OPTIONS.find(o => o.value === interestType)?.label} — The Way`,
-      source: "followtheway-io",
-      formName,
+      message: "Waitlist — The Way",
+      source: "homepage",
+      formName: "the-way-waitlist",
       pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
-      extra: {
-        interestType,
-        currentChallenge: currentChallenge.trim() || undefined,
-      },
+      extra: {},
     }
 
     try {
@@ -277,36 +260,6 @@ function ContactForm() {
         onChange={e => setEmail(e.target.value)}
         required
         style={inputStyle}
-        onFocus={e => (e.target.style.borderColor = DARK_50)}
-        onBlur={e => (e.target.style.borderColor = DARK_20)}
-      />
-      <select
-        value={interestType}
-        onChange={e => setInterestType(e.target.value)}
-        style={{
-          ...inputStyle,
-          appearance: "none",
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231c1710' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "right 16px center",
-          paddingRight: "40px",
-          cursor: "pointer",
-        }}
-      >
-        {INTEREST_OPTIONS.map(o => (
-          <option key={o.value} value={o.value}>{o.label}</option>
-        ))}
-      </select>
-      <textarea
-        placeholder="What's your biggest challenge right now? (optional)"
-        value={currentChallenge}
-        onChange={e => setCurrentChallenge(e.target.value)}
-        rows={3}
-        style={{
-          ...inputStyle,
-          resize: "none",
-          lineHeight: 1.55,
-        }}
         onFocus={e => (e.target.style.borderColor = DARK_50)}
         onBlur={e => (e.target.style.borderColor = DARK_20)}
       />
