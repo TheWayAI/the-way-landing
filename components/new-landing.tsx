@@ -164,15 +164,23 @@ function MonoLabel({ children, color }: { children: React.ReactNode; color?: str
   )
 }
 
-/* ─── Contact Form ─── */
+/* ─── Waitlist / CTA Form ─── */
+const INTEREST_OPTIONS = [
+  { value: "waitlist",   label: "Join the waitlist" },
+  { value: "cohort",     label: "Apply for a cohort" },
+  { value: "coaching",   label: "Explore coaching" },
+  { value: "community",  label: "Find community" },
+]
+
 function ContactForm() {
   const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [interestType, setInterestType] = useState("waitlist")
+  const [currentChallenge, setCurrentChallenge] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [errorMsg, setErrorMsg] = useState("")
 
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
     width: "100%",
     backgroundColor: "transparent",
     border: `1px solid ${DARK_20}`,
@@ -181,7 +189,7 @@ function ContactForm() {
     fontFamily: "var(--font-body), Georgia, serif",
     color: DARK,
     outline: "none",
-    boxSizing: "border-box" as const,
+    boxSizing: "border-box",
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -189,18 +197,30 @@ function ContactForm() {
     if (!email) return
     setStatus("loading")
     setErrorMsg("")
+
+    const formName =
+      interestType === "cohort"    ? "cohort-application" :
+      interestType === "waitlist"  ? "the-way-waitlist"   :
+      "launch-interest"
+
+    const payload = {
+      email: email.trim(),
+      firstName: firstName.trim() || undefined,
+      message: currentChallenge.trim() || `${INTEREST_OPTIONS.find(o => o.value === interestType)?.label} — The Way`,
+      source: "followtheway-io",
+      formName,
+      pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
+      extra: {
+        interestType,
+        currentChallenge: currentChallenge.trim() || undefined,
+      },
+    }
+
     try {
       const res = await fetch("/api/asc-intake", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          email,
-          firstName: firstName.trim() || undefined,
-          message: message.trim() || "Contact request from The Way site",
-          source: "the-way-site",
-          formName: "contact",
-          pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
-        }),
+        body: JSON.stringify(payload),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -227,10 +247,10 @@ function ContactForm() {
             lineHeight: 1.4,
           }}
         >
-          Message received.
+          You&apos;re on the map.
         </p>
         <p style={{ fontFamily: "var(--font-body), Georgia, serif", fontSize: "0.9rem", color: DARK_50, lineHeight: 1.6 }}>
-          We&apos;ll be in touch.
+          We&apos;ll be in touch as we open the first cohort.
         </p>
       </div>
     )
@@ -260,15 +280,31 @@ function ContactForm() {
         onFocus={e => (e.target.style.borderColor = DARK_50)}
         onBlur={e => (e.target.style.borderColor = DARK_20)}
       />
-      <textarea
-        placeholder="What are you reaching out about?"
-        value={message}
-        onChange={e => setMessage(e.target.value)}
-        rows={4}
+      <select
+        value={interestType}
+        onChange={e => setInterestType(e.target.value)}
         style={{
           ...inputStyle,
-          resize: "vertical",
-          minHeight: "112px",
+          appearance: "none",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231c1710' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right 16px center",
+          paddingRight: "40px",
+          cursor: "pointer",
+        }}
+      >
+        {INTEREST_OPTIONS.map(o => (
+          <option key={o.value} value={o.value}>{o.label}</option>
+        ))}
+      </select>
+      <textarea
+        placeholder="What's your biggest challenge right now? (optional)"
+        value={currentChallenge}
+        onChange={e => setCurrentChallenge(e.target.value)}
+        rows={3}
+        style={{
+          ...inputStyle,
+          resize: "none",
           lineHeight: 1.55,
         }}
         onFocus={e => (e.target.style.borderColor = DARK_50)}
@@ -292,7 +328,7 @@ function ContactForm() {
           transition: "background-color 0.2s",
         }}
       >
-        {status === "loading" ? "Sending…" : "Contact Us"}
+        {status === "loading" ? "Sending…" : "Request Early Access"}
       </button>
       {status === "error" && (
         <p
