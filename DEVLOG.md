@@ -15,6 +15,16 @@
 - Connected the Vercel project to the new repository, replacing manual CLI
   deploys with push-to-deploy.
 - Removed the unreachable `gitsafe-backup` remote left behind by Replit.
+- Archived `wpreble/thewayland1.1` on GitHub so the abandoned v0 site is clearly
+  historical and read only.
+- Deleted the `.replit` runtime config and renamed `replit.md` to `PROJECT.md`.
+  Despite its name the file held no Replit specifics, only the site's
+  positioning, logo assets, design tone, and architecture decisions.
+- Confirmed `followtheway.io` still resolves to Replit at 34.111.179.208.
+  Compared it against the Vercel build and found the only content differences
+  are the three intended post deploy changes: the contact CTA becoming
+  "Request Early Access" and the removal of the research reading time estimate.
+  Vercel serves the newer site.
 
 ## 2026-07-23
 

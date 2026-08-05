@@ -6,6 +6,9 @@ The public landing page for The Way.
 - Vercel project: [wprebles-projects/the-way-landing](https://vercel.com/wprebles-projects/the-way-landing)
 - Repository: [wpreble/the-way-landing](https://github.com/wpreble/the-way-landing)
 
+`PROJECT.md` covers the site's positioning, logo assets, design tone, and
+architecture decisions.
+
 ## Local development
 
 ```bash
