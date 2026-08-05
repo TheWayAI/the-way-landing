@@ -1,30 +1,45 @@
-# The way landing page
+# The Way landing page
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+The public landing page for The Way.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/wprebles-projects/v0-the-way-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/IvTSm9uXoN7)
+- Production: [the-way-landing.vercel.app](https://the-way-landing.vercel.app)
+- Vercel project: [wprebles-projects/the-way-landing](https://vercel.com/wprebles-projects/the-way-landing)
 
-## Overview
+## Local development
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+```bash
+pnpm install
+pnpm dev
+```
+
+The project is pinned to pnpm 10.15.0 through `package.json`.
+
+## Production validation
+
+```bash
+pnpm build
+npx tsc --noEmit
+```
 
 ## Deployment
 
-Your project is live at:
+Deploy the current workspace source to production:
 
-**[https://vercel.com/wprebles-projects/v0-the-way-landing-page](https://vercel.com/wprebles-projects/v0-the-way-landing-page)**
+```bash
+vercel deploy --prod
+```
 
-## Build your app
+Vercel Git deployments are intentionally disconnected because the imported site
+and the current GitHub `main` branch have divergent histories. Reconcile those
+histories before enabling automatic Git deployments.
 
-Continue building your app on:
+## Runtime configuration
 
-**[https://v0.dev/chat/projects/IvTSm9uXoN7](https://v0.dev/chat/projects/IvTSm9uXoN7)**
+The intake proxy requires these Vercel environment variables in Production,
+Preview, and Development:
 
-## How It Works
+- `INTAKE_BASE_URL`
+- `INTAKE_SLUG`
+- `INTAKE_KEY`
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+The values are configured in Vercel and must not be committed to source.
