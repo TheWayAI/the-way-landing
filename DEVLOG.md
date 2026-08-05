@@ -25,10 +25,18 @@
   are the three intended post deploy changes: the contact CTA becoming
   "Request Early Access" and the removal of the research reading time estimate.
   Vercel serves the newer site.
-- Added `followtheway.io` and `www.followtheway.io` to the Vercel project. Both
-  are pending DNS. The cutover needs an A record to `76.76.21.21` at Namecheap,
-  replacing the current A record to Replit. Adding the domains moves no traffic
-  on its own.
+- Added `followtheway.io` and `www.followtheway.io` to the Vercel project.
+- Cut `followtheway.io` over from Replit to Vercel. Repointed the apex A record
+  at Namecheap from `34.111.179.208` to `76.76.21.21`. The change propagated to
+  Cloudflare and Google resolvers immediately.
+- Vercel served the domain over HTTP right away but never auto-issued a TLS
+  certificate, so HTTPS failed the handshake for several minutes. Issuing the
+  certificate explicitly with `vercel certs issue followtheway.io` fixed it.
+  Worth remembering for the next domain: if HTTPS hangs after a cutover while
+  port 80 already returns 200, the certificate is the thing to check.
+- Left the `replit-verify` TXT record in place. It costs nothing and keeps a
+  rollback to Replit simple: point the apex A record back at `34.111.179.208`.
+- `www.followtheway.io` still has no DNS record and is the one outstanding item.
 - Repaired the repository. A stray `.git/refs/remotes/origin/main 2` file, a
   macOS duplicate left by the Replit export, was breaking `git fetch`. Removed
   it; the commit it referenced is still reachable through `legacy-v0/main`.

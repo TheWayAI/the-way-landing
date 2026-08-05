@@ -2,7 +2,8 @@
 
 The public landing page for The Way.
 
-- Production: [the-way-landing.vercel.app](https://the-way-landing.vercel.app)
+- Production: [followtheway.io](https://followtheway.io)
+- Vercel alias: [the-way-landing.vercel.app](https://the-way-landing.vercel.app)
 - Vercel project: [wprebles-projects/the-way-landing](https://vercel.com/wprebles-projects/the-way-landing)
 - Repository: [wpreble/the-way-landing](https://github.com/wpreble/the-way-landing)
 
