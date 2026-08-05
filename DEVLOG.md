@@ -1,5 +1,21 @@
 # Development log
 
+## 2026-08-05
+
+- Compared a fresh Replit export against the local workspace and confirmed it
+  carried no new content. Replit has been untouched since 2026-05-13, so the
+  local source is the authoritative version of the site.
+- Verified the self-managed toolchain end to end: `pnpm install`, a clean
+  `pnpm build` across all ten routes with TypeScript validation enabled, and a
+  working dev server.
+- Committed the outstanding intake proxy, build, and toolchain work from
+  2026-07-23.
+- Published the site to a new repository, `wpreble/the-way-landing`, and left
+  the divergent `wpreble/thewayland1.1` untouched as `legacy-v0`.
+- Connected the Vercel project to the new repository, replacing manual CLI
+  deploys with push-to-deploy.
+- Removed the unreachable `gitsafe-backup` remote left behind by Replit.
+
 ## 2026-07-23
 
 - Imported the `thewayland11` source archive into the shared The Way workspace.

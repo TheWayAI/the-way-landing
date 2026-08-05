@@ -4,6 +4,7 @@ The public landing page for The Way.
 
 - Production: [the-way-landing.vercel.app](https://the-way-landing.vercel.app)
 - Vercel project: [wprebles-projects/the-way-landing](https://vercel.com/wprebles-projects/the-way-landing)
+- Repository: [wpreble/the-way-landing](https://github.com/wpreble/the-way-landing)
 
 ## Local development
 
@@ -23,15 +24,22 @@ npx tsc --noEmit
 
 ## Deployment
 
-Deploy the current workspace source to production:
+Vercel builds this repository directly. Pushing to `main` deploys to production,
+and any other branch produces a preview deployment.
+
+```bash
+git push origin main
+```
+
+To deploy the working tree without committing, bypass Git and upload the current
+source:
 
 ```bash
 vercel deploy --prod
 ```
 
-Vercel Git deployments are intentionally disconnected because the imported site
-and the current GitHub `main` branch have divergent histories. Reconcile those
-histories before enabling automatic Git deployments.
+The `legacy-v0` remote points at `wpreble/thewayland1.1`, the abandoned v0
+version of the site. It is retained for history only and is not deployed.
 
 ## Runtime configuration
 
