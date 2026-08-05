@@ -25,6 +25,16 @@
   are the three intended post deploy changes: the contact CTA becoming
   "Request Early Access" and the removal of the research reading time estimate.
   Vercel serves the newer site.
+- Added `followtheway.io` and `www.followtheway.io` to the Vercel project. Both
+  are pending DNS. The cutover needs an A record to `76.76.21.21` at Namecheap,
+  replacing the current A record to Replit. Adding the domains moves no traffic
+  on its own.
+- Repaired the repository. A stray `.git/refs/remotes/origin/main 2` file, a
+  macOS duplicate left by the Replit export, was breaking `git fetch`. Removed
+  it; the commit it referenced is still reachable through `legacy-v0/main`.
+  `git fsck` is clean and `main` matches `origin/main`.
+- Moved the two redundant 366 MB export archives out of Downloads now that the
+  full source, including every binary asset, is committed and pushed.
 
 ## 2026-07-23
 
