@@ -36,7 +36,22 @@
   port 80 already returns 200, the certificate is the thing to check.
 - Left the `replit-verify` TXT record in place. It costs nothing and keeps a
   rollback to Replit simple: point the apex A record back at `34.111.179.208`.
-- `www.followtheway.io` still has no DNS record and is the one outstanding item.
+- Added the `www` A record and issued its certificate. Both `followtheway.io`
+  and `www.followtheway.io` now serve from Vercel over HTTPS. Certificates for
+  both had to be issued manually; neither was provisioned automatically.
+- Traced the waitlist pipeline. The form posts to `/api/asc-intake`, which
+  proxies to the Visionary Tower central intake at `/api/intake/the-way`, which
+  writes to Supabase and mirrors into the Visionary Tower Airtable base
+  (`Contacts` and `Lead Events`). Confirmed working: a submission made from
+  `followtheway.io/vision` after the cutover landed correctly.
+- Found a gap. The `The Way CRM` Airtable base has a `Website Leads` table
+  described as receiving followtheway.io leads routed from Visionary Tower, but
+  it holds zero records. Every lead pools in the shared Visionary Tower base
+  instead. The per venture routing into `The Way CRM` was never wired up.
+- Noted that `ASCENDANCE_INTAKE_URL` in the old `.replit` config pointed at
+  `vsnrytwrascnd33.replit.app`, which now serves "This app isn't live yet". The
+  Vercel `INTAKE_BASE_URL` points somewhere current, so that stale value is not
+  in use, but it is worth confirming the Vercel value directly.
 - Repaired the repository. A stray `.git/refs/remotes/origin/main 2` file, a
   macOS duplicate left by the Replit export, was breaking `git fetch`. Removed
   it; the commit it referenced is still reachable through `legacy-v0/main`.
